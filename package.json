@@ -1,0 +1,21 @@
+{
+  "name": "value-app",
+  "version": "1.0.0",
+  "description": "Calculate the per-use value of purchases over time.",
+  "main": "app.js",
+  "repository": "https://github.com/niamurrell/value-app.git",
+  "author": "Nia Murrell",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
