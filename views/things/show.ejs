@@ -1,0 +1,8 @@
+<% include ../partials/header %>
+
+  <h1><%= thing.name %></h1>
+  <h2>Purchased on: <%= thing.purchaseDate %></h2>
+  <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
+  <a href="/mythings/<%= thing.id %>/edit">EDIT</a>
+
+<% include ../partials/footer %>

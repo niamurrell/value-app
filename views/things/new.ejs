@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+  <h1>Add A New Thing</h1>
+
+  <form action="/mythings" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Name" required>
+
+    <label for="purchaseDate">Purchase Date:</label>
+    <input type="date" name="purchaseDate" required>
+
+    <label for="purchasePrice">Purchase Price:</label>
+    <input type="number" name="purchasePrice" placeholder="Purchase Price" step="0.01" min="0" required>
+    
+    <input type="submit">
+  </form>
+
+<% include ../partials/footer %>

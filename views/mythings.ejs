@@ -1,11 +1,12 @@
 <% include partials/header %>
 
   <h1>My Things!</h1>
+  <p>
+    <button><a href="/mythings/new">Add A New Thing</a></button>
+  </p>
 
-  <button><a href="/things/new">Add A New Thing</a></button>
-
-  <ul>
-    <li><a href="#">Thing 1</a></li>
-  </ul>
+  <% myThings.forEach(function(thing) { %>
+    <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
+  <% }) %>
 
 <% include partials/footer %>
