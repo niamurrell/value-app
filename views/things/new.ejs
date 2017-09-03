@@ -1,11 +1,10 @@
 <% include ../partials/header %>
 
   <h1>Add A New Thing</h1>
-  <h2><%= newThingName %></h2>
+  <h2>My New Thing: <%= newThingName %></h2>
+  <h2>Thing Type: <%= newThingType %></h2>
 
   <form action="/mythings" method="post">
-    <!-- <label for="name">Name:</label>
-    <input type="text" name="name" placeholder="Name" required> -->
 
     <label for="purchaseDate">Purchase Date:</label>
     <input type="date" name="purchaseDate" required>

@@ -17,21 +17,19 @@ var expressSanitizer = require("express-sanitizer");
 
 // Require DB Models
 var User = require("./models/user");
-var Thing = require("./models/userThing");
+var userThing = require("./models/userThing");
 var globalThing = require("./models/globalThing");
-
 
 // Require Routes
 var indexRoutes = require("./routes/index");
 var thingsRoutes = require("./routes/things");
 var globalThingsRoutes = require("./routes/globalThings");
 
-
 // Implement Node Modules
 var nodeEnv = process.env.NODE_ENV || "development";
 if (nodeEnv === "development") {
-  require('dotenv').config()
-}
+  require('dotenv').config()}
+
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
@@ -46,6 +44,7 @@ app.use(require("express-session")({
   saveUninitialized: false
 }));
 
+// Implement Passport for user authentication
 app.use(passport.initialize());
 app.use(passport.session());
 

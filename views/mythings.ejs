@@ -1,17 +1,17 @@
 <% include partials/header %>
 
   <h1>My Things!</h1>
-  <p>
-    <button><a href="/mythings/new">Add A New Thing</a></button>
-  </p>
 
   <% myThings.forEach(function(thing) { %>
     <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
   <% }) %>
 
-  <form action="/allthings" method="post">
+  <form action="/allthethings" method="post">
     <label for="name">Add A New Thing</label>
     <input type="text" name="name" placeholder="Name" required>
+
+    <label for="type">Type</label>
+    <input type="text" name="type" placeholder="(optional)">
 
     <input type="submit">
   </form>
