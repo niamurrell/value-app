@@ -62,7 +62,7 @@ app.use(function(req, res, next) {
 // Run app
 app.use(indexRoutes);
 app.use("/mythings", thingsRoutes);
-app.use("/allthings", globalThingsRoutes);
+app.use("/allthethings", globalThingsRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

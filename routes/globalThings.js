@@ -6,7 +6,7 @@ var middleware = require("./middleware")
 
 // Show All Global Things
 router.get("/", function(req, res) {
-  res.render("allthings");
+  res.render("allthethings");
 });
 
 // Submit form for a new GLOBAL thing
