@@ -3,6 +3,28 @@
 <head>
   <title>Value App</title>
   <link rel="shortcut icon" href="/img/dev-favicon.png">
+  <link
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+  <link
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/components/icon.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <div class="ui menu">
+    <div class="header item">ThingValue</div>
+    <a class="item" href="/">Home</a>
+    <a class="item" href="#">How It Works</a>
+    <a class="item" href="/allthings">All The Things</a>
+    <div class="right menu">
+      <% if (!currentUser) { %>
+        <a class="item" href="/register">Sign Up</a>
+        <a class="item" href="/login">Log In</a>
+      <% } else { %>
+        <a class="item" href="/mythings">My Things</a>
+        <a class="item" href="#"><i class="user circle"></i><%= currentUser.username %></a>
+        <a class="item" href="/logout">Log Out</a>
+      <% } %>
+
+
+    </div>
+  </div>

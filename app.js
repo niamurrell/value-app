@@ -1,6 +1,4 @@
 // LEFT OFF
-// Set up user accounts & login
-// Set up middleware
 // Set up persistent session
 // Fix thing creation & routes to map to user
 // Need to create view things page so it only shows this user's things

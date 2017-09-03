@@ -2,10 +2,10 @@ var express = require("express");
 var router = express.Router();
 var Thing = require("../models/userThing.js");
 var globalThing = require("../models/globalThing.js");
-var middleware = require("./middleware")
+var middleware = require("./middleware.js");
 
 // Show All My Things
-router.get("/", function(req, res) {
+router.get("/", middleware.isLoggedIn, function(req, res) {
   // User.findOne(req.body.user!!).populate("things").exec(function(err, user) {
   //   if (err) {
   //     console.log(err);
@@ -23,7 +23,7 @@ router.get("/", function(req, res) {
 });
 
 // Submit form for a new thing
-router.post("/", function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
   var name = decodeURIComponent(req.query.name);
   var purchaseDate = req.body.purchaseDate;
   var purchasePrice = req.body.purchasePrice;

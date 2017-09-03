@@ -16,14 +16,15 @@ router.post("/register", function(req, res) {
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
       req.flash("error", err.message);
-      return res.render("/register");
+      console.log(err);
+      return res.render("register");
     }
     passport.authenticate("local")(req, res, function() {
       req.flash("success", "Welcome!");
       res.redirect("/mythings");
     });
   })
-})
+});
 
 router.get("/login", function(req, res) {
   res.render("login");
@@ -36,7 +37,8 @@ router.post("/login", passport.authenticate("local", {
 );
 
 router.get("/logout", function(req, res) {
-  res.render("index");
+  req.logout();
+  res.redirect("/");
 });
 
 module.exports = router;
