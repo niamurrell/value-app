@@ -1,7 +1,9 @@
 // LEFT OFF
-// User created on sign up but not redirected properly
-// Set up thing creation & routes
+// Set up user accounts & login
 // Set up middleware
+// Set up persistent session
+// User created on sign up but not redirected properly
+// Fix thing creation & routes to map to user
 // Need to create view things page so it only shows this user's things
 
 // Require Node Modules
@@ -18,12 +20,14 @@ var expressSanitizer = require("express-sanitizer");
 
 // Require DB Models
 var User = require("./models/user");
-var Thing = require("./models/thing");
+var Thing = require("./models/userThing");
+var globalThing = require("./models/globalThing");
 
 
 // Require Routes
 var indexRoutes = require("./routes/index");
 var thingsRoutes = require("./routes/things");
+var globalThingsRoutes = require("./routes/globalThings");
 
 
 // Implement Node Modules
@@ -61,6 +65,7 @@ app.use(function(req, res, next) {
 // Run app
 app.use(indexRoutes);
 app.use("/mythings", thingsRoutes);
+app.use("/allthings", globalThingsRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

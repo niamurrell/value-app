@@ -3,8 +3,8 @@
   <h1>Edit <%= thing.name %></h1>
 
   <form action="/mythings/<%= thing.id %>?_method=PUT" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="thing[name]" value="<%= thing.name %>" required>
+    <!-- <label for="name">Name:</label>
+    <input type="text" name="thing[name]" value="<%= thing.name %>" required> -->
 
     <label for="purchaseDate">Purchase Date:</label>
     <input type="date" name="thing[purchaseDate]" value:"<%= thing.purchaseDate %>" required>

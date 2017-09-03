@@ -3,6 +3,7 @@
   <h1><%= thing.name %></h1>
   <h2>Purchased on: <%= thing.purchaseDate %></h2>
   <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
-  <a href="/mythings/<%= thing.id %>/edit">EDIT</a>
+  <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
+  <p><a href="/mythings/<%= thing.id %>/use">USE</a></p>
 
 <% include ../partials/footer %>

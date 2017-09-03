@@ -9,4 +9,12 @@
     <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
   <% }) %>
 
+  <form action="/allthings" method="post">
+    <label for="name">Add A New Thing</label>
+    <input type="text" name="name" placeholder="Name" required>
+
+    <input type="submit">
+  </form>
+
+
 <% include partials/footer %>
