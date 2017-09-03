@@ -2,7 +2,6 @@
 // Set up user accounts & login
 // Set up middleware
 // Set up persistent session
-// User created on sign up but not redirected properly
 // Fix thing creation & routes to map to user
 // Need to create view things page so it only shows this user's things
 
