@@ -2,8 +2,9 @@
 
   <h1>My Things!</h1>
 
-  <% myThings.forEach(function(thing) { %>
-    <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
+  <% user.things.forEach(function(thing) { %>
+    <!-- <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li> -->
+    <li>Date: <a href="#"><%= thing %></a></li>
   <% }) %>
 
   <form action="/allthethings" method="post">

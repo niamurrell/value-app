@@ -7,20 +7,24 @@ var middleware = require("./middleware.js");
 
 // Show All My Things
 router.get("/", middleware.isLoggedIn, function(req, res) {
-  // User.findByUsername().populate("things").exec(function(err, user) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(user);
-  //   }
-  // })
-  UserThing.find({}, function(err, myThings) {
-    if(err) {
+  User.findOne({username: req.user.username})
+  .populate("userThings")
+  .exec(function(err, user) {
+    if (err) {
       console.log(err);
+      res.redirect("/");
     } else {
-      res.render("mythings", {myThings: myThings});
+      console.log(user);
+      res.render("mythings", {user: user});
     }
   })
+  // UserThing.find({}, function(err, myThings) {
+  //   if(err) {
+  //     console.log(err);
+  //   } else {
+  //     res.render("mythings", {myThings: myThings});
+  //   }
+  // })
 });
 
 // Submit form for a new thing
