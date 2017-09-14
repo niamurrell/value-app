@@ -12,6 +12,8 @@ var flash = require("connect-flash");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
+var session = require("express-session");
+var MongoStore = require('connect-mongo')(session);
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 
@@ -31,17 +33,21 @@ if (nodeEnv === "development") {
   require('dotenv').config()}
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(flash());
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
-app.use(express.static(__dirname + "/public"));
 
-app.use(require("express-session")({
+app.use(session({
   secret: 'process.env.SESSION_SECRET',
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 7 * 24 * 60 * 60 // = 7 days
+  })
 }));
 
 // Implement Passport for user authentication
@@ -54,7 +60,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next) {
   res.locals.error = req.flash("error");
   res.locals.success = req.flash("success");
-  res.locals.currentUser = req.user;
+  res.locals.currentUser = req.user || null;
   next();
 })
 
