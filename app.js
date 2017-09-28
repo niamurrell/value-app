@@ -1,7 +1,8 @@
 // LEFT OFF
-// Set up persistent session
-// Fix thing creation & routes to map to user
-// Need to create view things page so it only shows this user's things
+// Create view things page to show the list (not object)
+// Create individual thing view
+// Add value change event
+// Style site
 
 // Require Node Modules
 var express = require("express");

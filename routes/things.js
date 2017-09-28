@@ -7,6 +7,7 @@ var middleware = require("./middleware.js");
 
 // Show All My Things
 router.get("/", middleware.isLoggedIn, function(req, res) {
+  var things = UserThing.find();
   User.findOne({username: req.user.username})
   .populate("userThings")
   .exec(function(err, user) {
@@ -15,7 +16,7 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
       res.redirect("/");
     } else {
       console.log(user);
-      res.render("mythings", {user: user});
+      res.render("mythings", {user: user, things: things});
     }
   })
   // UserThing.find({}, function(err, myThings) {
