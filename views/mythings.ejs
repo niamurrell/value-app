@@ -6,8 +6,7 @@
 
   <% user.things.forEach(function(thing) { %>
     <!-- <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li> -->
-    <li>Price: $<a href="#"><%= toString(thing.purchasePrice) %></a></li>
-    <% console.log(thing); %>
+    <li>Price: $<a href="#"><%= thing.purchasePrice %></a></li>
   <% }) %>
 
 

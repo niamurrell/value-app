@@ -5,11 +5,19 @@ var UserThing = require("../models/userThing.js");
 var GlobalThing = require("../models/globalThing.js");
 var middleware = require("./middleware.js");
 
+// All routes /mythings root
+
 // Show All My Things
 router.get("/", middleware.isLoggedIn, function(req, res) {
   var things = UserThing.find();
   User.findOne({username: req.user.username})
-  .populate("userThings")
+  .populate({
+    path: "things",
+    populate: {
+      path: "globalThing",
+      model: "GlobalThing"
+    }
+  })
   .exec(function(err, user) {
     if (err) {
       console.log(err);
