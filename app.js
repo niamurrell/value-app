@@ -1,6 +1,4 @@
 // LEFT OFF
-// Create view things page to show the list (not object)
-// Create individual thing view
 // Add value change event
 // Style site
 
@@ -21,12 +19,10 @@ var expressSanitizer = require("express-sanitizer");
 // Require DB Models
 var User = require("./models/user");
 var userThing = require("./models/userThing");
-var globalThing = require("./models/globalThing");
 
 // Require Routes
 var indexRoutes = require("./routes/index");
 var thingsRoutes = require("./routes/things");
-var globalThingsRoutes = require("./routes/globalThings");
 
 // Implement Node Modules
 var nodeEnv = process.env.NODE_ENV || "development";
@@ -68,7 +64,6 @@ app.use(function(req, res, next) {
 // Run app
 app.use(indexRoutes);
 app.use("/mythings", thingsRoutes);
-app.use("/allthethings", globalThingsRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

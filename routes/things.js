@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/user.js");
 var UserThing = require("../models/userThing.js");
-var GlobalThing = require("../models/globalThing.js");
 var middleware = require("./middleware.js");
 
 // All routes /mythings root
@@ -11,13 +10,7 @@ var middleware = require("./middleware.js");
 router.get("/", middleware.isLoggedIn, function(req, res) {
   var things = UserThing.find();
   User.findOne({username: req.user.username})
-  .populate({
-    path: "things",
-    populate: {
-      path: "globalThing",
-      model: "GlobalThing"
-    }
-  })
+  .populate("things")
   .exec(function(err, user) {
     if (err) {
       console.log(err);
@@ -27,13 +20,6 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
       res.render("mythings", {user: user, things: things});
     }
   })
-  // UserThing.find({}, function(err, myThings) {
-  //   if(err) {
-  //     console.log(err);
-  //   } else {
-  //     res.render("mythings", {myThings: myThings});
-  //   }
-  // })
 });
 
 // Submit form for a new thing
@@ -44,13 +30,8 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
       req.flash("error", "Something went wrong!");
       res.redirect("/mythings");
     } else {
-      // var globalThing = {
-        // id: ,
-        // name: ,
-        // type:
-      // };
       var newThing = {
-        // globalThing: globalThing,
+        name: req.body.name,
         purchaseDate: req.body.purchaseDate,
         purchasePrice: req.body.purchasePrice
       };
@@ -73,9 +54,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 
 // Form to create a new thing
 router.get("/new", function(req, res) {
-  var newThingName = req.query.name;
-  var newThingType = req.query.type;
-  res.render("things/new", {newThingName: newThingName, newThingType: newThingType});
+  res.render("things/new");
 })
 
 // Show a single Thing page

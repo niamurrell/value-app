@@ -5,20 +5,9 @@
   <%= things.purchasePrice %>
 
   <% user.things.forEach(function(thing) { %>
-    <!-- <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li> -->
-    <li>Price: $<a href="#"><%= thing.purchasePrice %></a></li>
+    <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
   <% }) %>
 
-
-  <form action="/allthethings" method="post">
-    <label for="name">Add A New Thing</label>
-    <input type="text" name="name" placeholder="Name" required>
-
-    <label for="type">Type</label>
-    <input type="text" name="type" placeholder="(optional)">
-
-    <input type="submit">
-  </form>
-
+  <a href="/mythings/new"><h3>Add A New Thing</h3></a>
 
 <% include partials/footer %>
