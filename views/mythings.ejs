@@ -6,7 +6,7 @@
 
   <% user.things.forEach(function(thing) { %>
     <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
-  <% }) %>
+  <% }); %>
 
   <a href="/mythings/new"><h3>Add A New Thing</h3></a>
 

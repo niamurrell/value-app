@@ -3,6 +3,13 @@
   <h1><%= thing.name %></h1>
   <h2>Purchased on: <%= thing.purchaseDate %></h2>
   <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
+  <h2>Current Value: $<%= thing.currentValue %></h2>
+  <h3>Usage Dates</h3>
+  <ol>
+    <% thing.usageDates.forEach(function(date) { %>
+      <li><%= date %></li>
+    <% }); %>
+  </ol>
   <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
   <p><a href="/mythings/<%= thing.id %>/use">USE</a></p>
 

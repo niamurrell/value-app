@@ -33,7 +33,8 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
       var newThing = {
         name: req.body.name,
         purchaseDate: req.body.purchaseDate,
-        purchasePrice: req.body.purchasePrice
+        purchasePrice: req.body.purchasePrice,
+        currentValue: req.body.purchasePrice
       };
       UserThing.create(newThing, function(err, addedThing) {
         if (err) {
@@ -107,25 +108,20 @@ router.get("/:id/use", function(req, res) {
 
 // Add a use to a single Thing
 router.put("/:id/use", function(req, res) {
-  // var addedUse = req.body.use;
-  // User.findOne({current user}, function (err, foundUser) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     foundUser.things[usageDates].push(addedUse);
-  //   }
-  // })
-  UserThing.findByIdAndUpdate(req.params.id, req.body.use, function(err, addedUse) {
+  var addedUse = new Date(req.body.useDate);
+  UserThing.findById(req.params.id, function (err, foundThing) {
     if (err) {
       console.log(err);
-      // res.redirect somewhere
+      req.flash("error", "Something went wrong!");
+
     } else {
+      foundThing.usageDates.push(addedUse);
+      foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
+      foundThing.save();
       req.flash("success", "Use added!");
       res.redirect("/mythings/" + req.params.id);
     }
   })
 })
-
-
 
 module.exports = router;

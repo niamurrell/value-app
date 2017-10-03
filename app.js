@@ -1,5 +1,4 @@
 // LEFT OFF
-// Add value change event
 // Style site
 
 // Require Node Modules
