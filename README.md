@@ -2,7 +2,15 @@
 
 ## Description
 
-Have you ever wanted to know how much value you're getting out of the things you buy? With this app you can track the per-use value of your purchases over time. Set the initial purchase price when you buy the item, then click 'I used it!' every time you use the item. The app will keep track of the per-use value so you can make sure you're getting good use of your spending money.
+Have you ever wanted to know how much value you're getting out of the things you buy? With this app you can track the per-use cost of your purchases over time. Set the initial purchase price when you buy the item, then click 'I used it!' every time you use the item. The app will keep track of the per-use cost so you can make sure you're getting good use of your spending money.
+
+## In Progress
+
+* Fix date displays
+* Style site & browser form support
+* Add edit Thing
+* Add currency support
+* Add support for subscriptions where you keep paying in
 
 ## Installation
 
@@ -18,6 +26,7 @@ Have you ever wanted to know how much value you're getting out of the things you
 * Node.js
 * Express
 * MongoDB
+* MomentJS
 
 ## Contributing
 1. Fork it!

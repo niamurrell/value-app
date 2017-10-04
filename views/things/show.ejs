@@ -1,16 +1,27 @@
 <% include ../partials/header %>
 
   <h1><%= thing.name %></h1>
-  <h2>Purchased on: <%= thing.purchaseDate %></h2>
+  <h2>Purchased on: <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %></h2>
   <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
   <h2>Current Value: $<%= thing.currentValue %></h2>
   <h3>Usage Dates</h3>
-  <ol>
-    <% thing.usageDates.forEach(function(date) { %>
-      <li><%= date %></li>
-    <% }); %>
-  </ol>
+  <div class="ui container">
+    <div class="ui middle aligned divided list">
+      <% thing.usageDates.forEach(function(date) { %>
+      <div class="item">
+        <!-- <div class="right floated content">
+          <div class="ui button">Delete</div>
+        </div> -->
+        <img class="ui avatar image" src="/images/avatar2/small/lena.png">
+        <div class="content">
+          <%= moment(date).format("dddd, D MMMM YYYY") %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
   <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
   <p><a href="/mythings/<%= thing.id %>/use">USE</a></p>
+
 
 <% include ../partials/footer %>

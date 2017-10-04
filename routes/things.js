@@ -3,6 +3,7 @@ var router = express.Router();
 var User = require("../models/user.js");
 var UserThing = require("../models/userThing.js");
 var middleware = require("./middleware.js");
+var moment = require("moment");
 
 // All routes /mythings root
 
@@ -17,7 +18,7 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
       res.redirect("/");
     } else {
       console.log(user);
-      res.render("mythings", {user: user, things: things});
+      res.render("mythings", {user: user, things: things, moment: moment});
     }
   })
 });
@@ -32,7 +33,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
     } else {
       var newThing = {
         name: req.body.name,
-        purchaseDate: req.body.purchaseDate,
+        purchaseDate: new Date(req.body.purchaseDate),
         purchasePrice: req.body.purchasePrice,
         currentValue: req.body.purchasePrice
       };
@@ -50,13 +51,13 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         }
       });
     }
-  })
-})
+  });
+});
 
 // Form to create a new thing
 router.get("/new", function(req, res) {
   res.render("things/new");
-})
+});
 
 // Show a single Thing page
 router.get("/:id", function(req, res) {
@@ -65,10 +66,10 @@ router.get("/:id", function(req, res) {
       console.log(err);
       res.redirect("mythings");
     } else {
-      res.render("things/show", {thing: foundThing});
+      res.render("things/show", {thing: foundThing, moment: moment});
     }
-  })
-})
+  });
+});
 
 // Edit a single Thing
 router.get("/:id/edit", function(req, res) {
@@ -77,21 +78,21 @@ router.get("/:id/edit", function(req, res) {
       console.log(err);
       res.redirect("mythings");
     } else {
-      res.render("things/edit", {thing: foundThing});
+      res.render("things/edit", {thing: foundThing, moment: moment});
     }
-  })
+  });
 });
 
 // Update a single Thing
 router.put("/:id", function(req, res) {
-  UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, updatedThing) {
+  UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, foundThing) {
     if (err) {
       res.redirect("mythings");
     } else {
       req.flash("success", "Thing updated!");
       res.redirect("/mythings/" + req.params.id);
     }
-  })
+  });
 });
 
 // Use a single Thing
@@ -103,7 +104,7 @@ router.get("/:id/use", function(req, res) {
     } else {
       res.render("things/use", {thing: foundThing});
     }
-  })
+  });
 });
 
 // Add a use to a single Thing
@@ -121,7 +122,7 @@ router.put("/:id/use", function(req, res) {
       req.flash("success", "Use added!");
       res.redirect("/mythings/" + req.params.id);
     }
-  })
-})
+  });
+});
 
 module.exports = router;

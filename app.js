@@ -1,6 +1,3 @@
-// LEFT OFF
-// Style site
-
 // Require Node Modules
 var express = require("express");
 var app = express();
