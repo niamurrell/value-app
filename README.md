@@ -6,8 +6,7 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 ## In Progress
 
-* Fix date displays
-* Style site & browser form support
+* Style site
 * Add edit Thing
 * Add currency support
 * Add support for subscriptions where you keep paying in

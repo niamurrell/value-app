@@ -1,3 +1,4 @@
+// Flash messages
 $('.message .close')
   .on('click', function() {
     $(this)
@@ -6,3 +7,6 @@ $('.message .close')
     ;
   })
 ;
+
+// Date picker
+$(".date-picker").datepicker();
