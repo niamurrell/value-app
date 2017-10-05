@@ -12,19 +12,21 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <div class="ui menu">
-    <div class="header item">ThingValue</div>
-    <a class="item" href="/">Home</a>
-    <a class="item" href="#">How It Works</a>
-    <div class="right menu">
-      <% if (!currentUser) { %>
-        <a class="item" href="/register">Sign Up</a>
-        <a class="item" href="/login">Log In</a>
-      <% } else { %>
-        <a class="item" href="/mythings">My Things</a>
-        <a class="item" href="#"><i class="user"></i> <%= currentUser.username %></a>
-        <a class="item" href="/logout">Log Out</a>
-      <% } %>
+  <div class="ui attached stackable menu">
+    <div class="ui container">
+      <div class="header item">ThingValue</div>
+      <a class="item" href="/">Home</a>
+      <a class="item" href="#">How It Works</a>
+      <div class="right menu">
+        <% if (!currentUser) { %>
+          <a class="item" href="/register">Sign Up</a>
+          <a class="item" href="/login">Log In</a>
+        <% } else { %>
+          <a class="item" href="/mythings">My Things</a>
+          <a class="item" href="#"><i class="user"></i> <%= currentUser.username %></a>
+          <a class="item" href="/logout">Log Out</a>
+        <% } %>
+      </div>
     </div>
   </div>
   <div class="ui container">
