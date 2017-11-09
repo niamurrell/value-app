@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-
+  <div class="ui text container segment">
   <h1><%= thing.name %></h1>
   <h2>Purchased on: <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %></h2>
   <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
@@ -22,6 +22,6 @@
   </div>
   <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
   <p><a href="/mythings/<%= thing.id %>/use">USE</a></p>
-
+</div>
 
 <% include ../partials/footer %>

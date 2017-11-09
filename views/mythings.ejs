@@ -1,13 +1,29 @@
 <% include partials/header %>
 
-  <h1>My Things!</h1>
+  <!-- <div class="ui raised segment"> -->
+    <h1 class="ui center aligned header">My Things!</h1>
+    <h3 class="ui center aligned header"><a href="/mythings/new">Add A New Thing</a></h3>
 
-  <%= things.purchasePrice %>
-
-  <% user.things.forEach(function(thing) { %>
-    <li><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></li>
+  <div class="ui equal width four column stackable doubling centered grid">
+    <% user.things.forEach(function(thing) { %>
+      <div class="column">
+        <div class="ui cards">
+          <div class="card">
+            <div class="content">
+              <div class="ui center aligned header"><a href="/mythings/<%= thing._id %>"><%= thing.name %></a></div>
+              <div class="description">
+                Purchased: <%= thing.purchaseDate %>
+              </div>
+            </div>
+            <div class="ui bottom attached two buttons">
+              <div class="ui basic button">Use!</div>
+              <div class="ui basic button">Edit!</div>
+            </div>
+          </div>
+        </div>
+      </div>
   <% }); %>
-
-  <a href="/mythings/new"><h3>Add A New Thing</h3></a>
+  </div>
+  <!-- </div> -->
 
 <% include partials/footer %>
