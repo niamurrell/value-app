@@ -1,9 +1,10 @@
 <% include ../partials/header %>
+  <% var currencySymbol = "$" %>
   <div class="ui text container segment">
   <h1><%= thing.name %></h1>
   <h2>Purchased on: <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %></h2>
-  <h2>Purchase Price: $<%= thing.purchasePrice %></h2>
-  <h2>Current Value: $<%= thing.currentValue %></h2>
+  <h2>Purchase Price: <%= currencySymbol %><%= thing.purchasePrice %></h2>
+  <h2>Current Value: <%= currencySymbol %><%= parseFloat(thing.currentValue).toFixed(2) %></h2>
   <h3>Usage Dates</h3>
   <div class="ui container">
     <div class="ui middle aligned divided list">

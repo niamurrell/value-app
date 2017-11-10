@@ -6,10 +6,15 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 ## In Progress
 
-* Style site
+* Style my things view
+  * Fix card alignment
+  * Fix footer margin
+* Style single thing view
 * Add edit Thing
 * Add currency support
 * Add support for subscriptions where you keep paying in
+* Add goal cost per use (compare single ticket vs. membership, etc.)
+* Cost per use estimation calculator
 
 ## Installation
 

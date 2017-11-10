@@ -21,7 +21,7 @@ userThingSchema.path("purchasePrice").get(function(num) {
 
 // Fix currentValue to 2 decimal places
 userThingSchema.path("currentValue").get(function(num) {
-  return (num).toFixed(2);
+  return (num);
 });
 
 module.exports = mongoose.model("UserThing", userThingSchema);
