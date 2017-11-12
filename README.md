@@ -6,11 +6,17 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 ## In Progress
 
-* Style my things view
-  * Fix card alignment
-  * Fix footer margin
-* Style single thing view
-* Add edit Thing
+* Build & style site
+  * Collapse nav menu below 767
+  * Style myThings header
+  * Fix myThings button hover
+  * Add How It Works page
+  * Add user profile page
+  * Nav: remove Home, logical home nav
+  * Style sign-up page
+  * Style login page
+  * Style edit Thing
+  * Edit thing: make dates deletable
 * Add currency support
 * Add support for subscriptions where you keep paying in
 * Add goal cost per use (compare single ticket vs. membership, etc.)
