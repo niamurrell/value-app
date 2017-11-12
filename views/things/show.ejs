@@ -1,28 +1,82 @@
 <% include ../partials/header %>
   <% var currencySymbol = "$" %>
+  <% var userCurrency = "USD" %>
   <div class="ui text container segment">
-  <h1><%= thing.name %></h1>
-  <h2>Purchased on: <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %></h2>
-  <h2>Purchase Price: <%= currencySymbol %><%= thing.purchasePrice %></h2>
-  <h2>Current Value: <%= currencySymbol %><%= parseFloat(thing.currentValue).toFixed(2) %></h2>
-  <h3>Usage Dates</h3>
-  <div class="ui container">
-    <div class="ui middle aligned divided list">
-      <% thing.usageDates.forEach(function(date) { %>
-      <div class="item">
-        <!-- <div class="right floated content">
-          <div class="ui button">Delete</div>
-        </div> -->
-        <img class="ui avatar image" src="/images/avatar2/small/lena.png">
-        <div class="content">
-          <%= moment(date).format("dddd, D MMMM YYYY") %>
+    <div class="ui show card">
+      <div class="content">
+        <div class="center aligned header">
+          <%= thing.name %>
+        </div>
+        <div class="center aligned meta">
+          Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("D MMMM YYYY") %>. <a href="/mythings/<%= thing.id %>/edit"><i class="edit icon"></i></a>
+        </div>
+        <div class="center aligned description">
+          Current cost per use: <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %>
         </div>
       </div>
-      <% }); %>
+      <div class="extra content">
+        <div class="description">
+        <h3>Usage Dates</h3>
+        <div class="ui container">
+          <div class="ui middle aligned divided list">
+            <% if (thing.useCount == 0) { %>
+            <div class="item">
+              <div class="content">
+                Not used yet.
+              </div>
+            </div>
+            <% } %>
+            <div class="item">
+              <div class="content">
+                <a href="/mythings/<%= thing.id %>/use"><i class="large plus link icon"></i> Add New</a>
+              </div>
+            </div>
+            <% thing.usageDates.forEach(function(date) { %>
+            <div class="item">
+              <div class="content">
+                <i class="large trash outline icon"></i>
+                <%= moment(date).format("dddd, D MMMM YYYY") %>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
+
+
+    <!-- <h1 class="ui center aligned header"><%= thing.name %></h1>
+    <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
+    <div class="center aligned meta">
+      Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>.
+    </div>
+    <h2>Current Value: <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %></h2>
+    <h3>Usage Dates</h3>
+    <div class="ui container">
+      <div class="ui middle aligned divided list">
+        <% if (thing.useCount == 0) { %>
+        <div class="item">
+          <div class="content">
+            Not used yet.
+          </div>
+        </div>
+        <% } %>
+        <div class="item">
+          <div class="content">
+            <a href="/mythings/<%= thing.id %>/use"><i class="large plus link icon"></i> Add new use</a>
+          </div>
+        </div>
+        <% thing.usageDates.forEach(function(date) { %>
+        <div class="item">
+          <div class="content">
+            <i class="large trash outline icon"></i>
+            <%= moment(date).format("dddd, D MMMM YYYY") %>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div> -->
   </div>
-  <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
-  <p><a href="/mythings/<%= thing.id %>/use">USE</a></p>
-</div>
 
 <% include ../partials/footer %>

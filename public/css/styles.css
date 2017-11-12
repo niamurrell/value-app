@@ -6,3 +6,16 @@
   margin: 0px;
   width: 100%;
 }
+
+body {
+  background-image: url(/img/ecailles.png);
+}
+
+main {
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
+.ui.cards > .card, .ui.card {
+  width: 1200px;
+}
