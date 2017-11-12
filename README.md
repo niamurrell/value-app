@@ -10,11 +10,11 @@ Have you ever wanted to know how much value you're getting out of the things you
   * Collapse nav menu below 767
   * Style myThings header
   * Fix myThings button hover
-  * Add How It Works page
+  * Add How It Works to home page
   * Add user profile page
+  * Add forgot password function
   * Nav: remove Home, logical home nav
   * Style sign-up page
-  * Style login page
   * Style edit Thing
   * Edit thing: make dates deletable
 * Add currency support

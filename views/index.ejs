@@ -1,9 +1,27 @@
 <% include partials/header %>
 
-  <h1>Hello!</h1>
-  <a href="/register">Click to sign up</a>
-  <a href="/login">Click to log in</a>
-  <a href="/logout">Click to log out</a>
-  <p><a href="/mythings">View My Things!</a></p>
+  <div class="ui text container segment">
+    <div class="ui attached segment">
+      <h1 class="ui center aligned header">Sign In</h1>
+      <form action="/login" method="post" class="ui big form">
+        <div class="two fields">
+          <div class="field">
+            <label for="username">Username</label>
+            <input placeholder="Username" type="text" name="username">
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input placeholder="Password" type="password" name="password">
+          </div>
+        </div>
+        <p><a href="#">Forgot Password?</a></p>
+          <div class="ui two bottom attached buttons">
+            <button class="ui big grey button" type="submit">Log In</button>
+            <a class="ui big button" href="/register">Create An Account</a>
+          </div>
+      </form>
+    </div>
+  </div>
+
 
 <% include partials/footer %>
