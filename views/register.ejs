@@ -1,18 +1,28 @@
 <% include partials/header %>
 
-  <h1>Sign Up For the Value App!</h1>
-
-  <form action="/register" method="post">
-    <label for="email">Username:</label>
-    <input type="text" name="username" placeholder="Username">
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" placeholder="Password">
-
-    <label for="passwordMatch">Confirm Password:</label>
-    <input type="password" name="passwordMatch" placeholder="Once more...">
-
-    <input type="submit">
-  </form>
+<div class="ui text container segment">
+  <div class="ui attached segment">
+    <h1 class="ui center aligned header">Create An Account</h1>
+    <form action="/register" method="post" class="ui big form">
+      <div class="field">
+        <label for="username">Username</label>
+        <input placeholder="Username" type="text" name="username">
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label for="password">Password</label>
+          <input placeholder="Password" type="password" name="password">
+        </div>
+        <div class="field">
+          <label for="passwordMatch">Confirm Password</label>
+          <input placeholder="Confirm Password" type="password" name="passwordMatch">
+        </div>
+      </div>
+      <div class="ui bottom attached buttons">
+        <button class="ui big primary button" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <% include partials/footer %>

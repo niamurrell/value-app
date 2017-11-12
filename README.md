@@ -14,7 +14,6 @@ Have you ever wanted to know how much value you're getting out of the things you
   * Add user profile page
   * Add forgot password function
   * Nav: remove Home, logical home nav
-  * Style sign-up page
   * Style edit Thing
   * Edit thing: make dates deletable
 * Add currency support
