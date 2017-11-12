@@ -55,12 +55,12 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 });
 
 // Form to create a new thing
-router.get("/new", function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
   res.render("things/new");
 });
 
 // Show a single Thing page
-router.get("/:id", function(req, res) {
+router.get("/:id", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
       console.log(err);
@@ -72,7 +72,7 @@ router.get("/:id", function(req, res) {
 });
 
 // Edit a single Thing
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
       console.log(err);
@@ -96,7 +96,7 @@ router.put("/:id", function(req, res) {
 });
 
 // Use a single Thing
-router.get("/:id/use", function(req, res) {
+router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
       console.log(err);
