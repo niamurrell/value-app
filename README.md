@@ -7,15 +7,15 @@ Have you ever wanted to know how much value you're getting out of the things you
 ## In Progress
 
 * Build & style site
-  * Collapse nav menu below 767
-  * Style myThings header
   * Fix myThings button hover
   * Add How It Works to home page
   * Add user profile page
   * Add forgot password function
-  * Nav: remove Home, logical home nav
+  * Nav: add active state to current page
+  * Style add new Thing
   * Style edit Thing
   * Edit thing: make dates deletable
+  * Add 404
 * Add currency support
 * Add support for subscriptions where you keep paying in
 * Add goal cost per use (compare single ticket vs. membership, etc.)

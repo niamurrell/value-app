@@ -1,27 +1,66 @@
 <% include partials/header %>
 
-  <div class="ui text container segment">
-    <div class="ui attached segment">
-      <h1 class="ui center aligned header">Log In</h1>
-      <form action="/login" method="post" class="ui big form">
-        <div class="two fields">
-          <div class="field">
-            <label for="username">Username</label>
-            <input placeholder="Username" type="text" name="username">
+<% if (!currentUser) { %>
+  <section>
+    <div class="ui text container segment">
+      <div class="ui attached segment">
+        <h1 class="ui center aligned header">Log In</h1>
+        <form action="/login" method="post" class="ui big form">
+          <div class="two fields">
+            <div class="field">
+              <label for="username">Username</label>
+              <input placeholder="Username" type="text" name="username">
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input placeholder="Password" type="password" name="password">
+            </div>
           </div>
-          <div class="field">
-            <label for="password">Password</label>
-            <input placeholder="Password" type="password" name="password">
-          </div>
-        </div>
-        <p><a href="#">Forgot Password?</a></p>
-          <div class="ui two bottom attached buttons">
-            <button class="ui big primary button" type="submit">Log In</button>
-            <a class="ui big button" href="/register">Create An Account</a>
-          </div>
-      </form>
+          <p><a href="#">Forgot Password?</a></p>
+            <div class="ui two bottom attached buttons">
+              <button class="ui big primary button" type="submit">Log In</button>
+              <a class="ui big button" href="/register">Create An Account</a>
+            </div>
+        </form>
+      </div>
+    </div>
+  </section>
+<% } else { %>
+  <h1 class="ui center aligned enormous header">ValueMax</h1>
+  <h2 class="ui center aligned header">Maximize the value of your money!</h2>
+  <div class="ui hidden section divider"></div>
+  <section>
+    <div class="ui center aligned basic segment">
+      <div class="ui massive buttons">
+        <a href="/mythings" class="ui primary button">See All My Things</a>
+        <div class="or"></div>
+        <a href="/myaccount" class="ui button">Manage My Account</a>
+      </div>
+    </div>
+  </section>
+<% } %>
+  <div class="ui hidden section divider"></div>
+    <h1 class="ui horizontal divider header">How It Works</h1>
+  <div class="ui hidden section divider"></div>
+  <div class="ui center aligned three column stackable grid">
+    <div class="column">
+      <div class="ui very padded raised segment">
+        <p>Add A Thing</p>
+        <p>Danish bonbon toffee donut soufflé lemon drops. Cookie dragée chupa chups. Sweet macaroon lollipop chocolate cake sesame snaps carrot cake.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui very padded raised segment">
+        <p>Mark Each Time You Use It</p>
+        <p>Jelly beans gummi bears pudding jujubes. Dessert wafer dragée pastry cookie toffee chocolate cake. Oat cake brownie sesame snaps soufflé.</p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui very padded raised segment">
+        <p>Watch the Value Rise!</p>
+        <p>Carrot cake sugar plum dessert powder tart danish chocolate cake soufflé ice cream. Donut topping sugar plum lemon drops lemon drops fruitcake marshmallow ice cream chocolate bar.</p>
+      </div>
     </div>
   </div>
-
 
 <% include partials/footer %>

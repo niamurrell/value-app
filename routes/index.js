@@ -31,10 +31,14 @@ router.get("/login", function(req, res) {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/mythings",
-  failureRedirect: "/login"
+  successRedirect: "/",
+  failureRedirect: "/"
   }), function(req, res) {}
 );
+
+router.get("/myaccount", function(req, res) {
+  res.render("myaccount");
+});
 
 router.get("/logout", function(req, res) {
   req.logout();

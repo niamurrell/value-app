@@ -84,7 +84,7 @@ router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
 });
 
 // Update a single Thing
-router.put("/:id", middleware.isLoggedIn,, function(req, res) {
+router.put("/:id", middleware.isLoggedIn, function(req, res) {
   UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, foundThing) {
     if (err) {
       res.redirect("mythings");
@@ -108,7 +108,7 @@ router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
 });
 
 // Add a use to a single Thing
-router.put("/:id/use", middleware.isLoggedIn,, function(req, res) {
+router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
   var addedUse = new Date(req.body.useDate);
   UserThing.findById(req.params.id, function (err, foundThing) {
     if (err) {

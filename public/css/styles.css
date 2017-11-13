@@ -19,3 +19,7 @@ main {
 .ui.cards > .card, .ui.card {
   width: 1200px;
 }
+
+h1.ui.header.enormous {
+  font-size: 5rem;
+}

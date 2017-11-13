@@ -12,24 +12,26 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+  <% if (currentUser) { %>
     <nav>
       <div class="ui attached stackable menu">
         <div class="ui container">
-          <div class="header item"><a href="/">valueMax</a></div>
-          <a class="item" href="#">How It Works</a>
+          <div class="header item"><a href="/">ValueMax</a></div>
+          <a class="item" href="/">Home</a>
           <div class="right menu">
             <% if (!currentUser) { %>
               <a class="item" href="/register">Sign Up</a>
               <a class="item" href="/login">Log In</a>
             <% } else { %>
               <a class="item" href="/mythings">My Things</a>
-              <a class="item" href="#"><i class="user"></i> <%= currentUser.username %></a>
+              <a class="item" href="/myaccount"><i class="user icon"></i> My Account</a>
               <a class="item" href="/logout">Log Out</a>
             <% } %>
           </div>
         </div>
       </div>
     </nav>
+  <% } %>
   <main>
     <div class="ui container">
       <% if (error && error.length > 0) { %>
@@ -43,4 +45,9 @@
           <i class="close icon"></i>
           <%= success %>
         </div>
+      <% } %>
+      <% if (!currentUser) { %>
+        <h1 class="ui center aligned enormous header">ValueMax</h1>
+        <h2 class="ui center aligned header">Maximize the value of your money!</h2>
+        <div class="ui hidden section divider"></div>
       <% } %>
