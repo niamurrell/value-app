@@ -16,7 +16,7 @@
     <nav>
       <div class="ui attached stackable menu">
         <div class="ui container">
-          <div class="header item"><a href="/">ValueMax</a></div>
+          <a class="header item" href="/"><i class="line chart icon"></i>ValueMax</a>
           <a class="item" href="/">Home</a>
           <div class="right menu">
             <% if (!currentUser) { %>
@@ -24,7 +24,7 @@
               <a class="item" href="/login">Log In</a>
             <% } else { %>
               <a class="item" href="/mythings">My Things</a>
-              <a class="item" href="/myaccount"><i class="user icon"></i> My Account</a>
+              <a class="item" href="/myaccount"><i class="user icon"></i><%= currentUser.username %></a>
               <a class="item" href="/logout">Log Out</a>
             <% } %>
           </div>
@@ -47,7 +47,7 @@
         </div>
       <% } %>
       <% if (!currentUser) { %>
-        <h1 class="ui center aligned enormous header">ValueMax</h1>
+        <h1 class="ui center aligned enormous header"><i class="line chart icon"></i>ValueMax</h1>
         <h2 class="ui center aligned header">Maximize the value of your money!</h2>
         <div class="ui hidden section divider"></div>
       <% } %>

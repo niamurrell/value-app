@@ -1,12 +1,3 @@
-.footer {
-  background-color: #DDD;
-  display: block;
-  position: fixed;
-  bottom: 0;
-  margin: 0px;
-  width: 100%;
-}
-
 body {
   background-image: url(/img/ecailles.png);
 }
@@ -16,10 +7,22 @@ main {
   margin-bottom: 50px;
 }
 
+.footer {
+  background-color: #DDD;
+  display: block;
+  position: fixed;
+  bottom: 0;
+  margin: 0px;
+  width: 100%;
+}
+
 .ui.cards > .card, .ui.card {
   width: 1200px;
 }
 
 h1.ui.header.enormous {
   font-size: 5rem;
+}
+.ui.header > .icon {
+  font-size: 1.3em;
 }
