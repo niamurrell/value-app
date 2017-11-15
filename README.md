@@ -9,7 +9,7 @@ Have you ever wanted to know how much value you're getting out of the things you
 * Build & style site
   * Fix myThings button hover
   * Add How It Works to home page
-  * Add user profile page
+  * **Add user profile page**
   * Add forgot password function
   * Nav: add active state to current page
   * Style add new Thing
