@@ -21,24 +21,24 @@ router.post("/register", function(req, res) {
     }
     passport.authenticate("local")(req, res, function() {
       req.flash("success", "Welcome!");
-      res.redirect("/mythings");
+      res.redirect("/");
     });
   })
 });
 
 router.get("/login", function(req, res) {
-  res.render("login");
+  res.render("login", {
+    user : req.user,
+    error : req.flash("error")
+  });
 });
 
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/"
+  failureRedirect: "/",
+  failureFlash : { type: "error", message: "Invalid username or password! Please try again." }
   }), function(req, res) {}
 );
-
-router.get("/myaccount", function(req, res) {
-  res.render("myaccount");
-});
 
 router.get("/logout", function(req, res) {
   req.logout();
