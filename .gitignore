@@ -13,6 +13,15 @@ Thumbs.db
 image-source/*
 node_modules
 
+# Libraries #
+######################
+public/css/jquery-ui.css
+public/css/jquery-ui.theme.min.css
+public/css/semantic-2.2.13.css
+public/js/jquery-3.2.1.min.js
+public/js/jquery-ui.js
+public/js/semantic.min-2.2.13.js
+
 * Secret Sauce #
 ######################
 .env
