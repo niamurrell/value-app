@@ -1,18 +1,28 @@
 <% include ../partials/header %>
 
-  <h1>Edit <%= thing.name %></h1>
-
-  <form action="/mythings/<%= thing.id %>?_method=PUT" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="thing[name]" value="<%= thing.name %>" required>
-
-    <label for="purchaseDate">Purchase Date:</label>
-    <input type="date" name="thing[purchaseDate]" value:"<%= thing.purchaseDate %>" required>
-
-    <label for="purchasePrice">Purchase Price:</label>
-    <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" required>
-
-    <input type="submit">
-  </form>
+<div class="ui text container segment">
+  <div class="ui attached segment">
+    <h1 class="ui center aligned header">Edit <%= thing.name %></h1>
+    <form action="/mythings/<%= thing.id %>?_method=PUT" method="post" class="ui big form">
+      <div class="two fields">
+        <div class="field">
+          <label for="name">Name:</label>
+          <input type="text" name="thing[name]" value="<%= thing.name %>" required>
+        </div>
+        <div class="field">
+          <label for="purchaseDate">Purchase Date:</label>
+          <input type="text" name="thing[purchaseDate]" class="date-picker" placeholder="<%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="purchasePrice">Purchase Price:</label>
+        <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" required>
+      </div>
+      <div class="ui hidden section divider"></div>
+      <button class="ui big primary button" type="submit">Submit</button>
+      <a class="ui big negative button" href="/mythings/<%= thing.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
 
 <% include ../partials/footer %>

@@ -10,8 +10,6 @@ Have you ever wanted to know how much value you're getting out of the things you
   * Fix myThings button hover
   * Add forgot password function
   * Nav: add active state to current page
-  * Style add new Thing
-  * Style edit Thing
   * Edit thing: make dates deletable
   * Add 404
 * Add currency support
