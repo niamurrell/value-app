@@ -8,7 +8,10 @@
           <%= thing.name %>
         </div>
         <div class="center aligned meta">
-          Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("D MMMM YYYY") %>. <a href="/mythings/<%= thing.id %>/edit"><i class="edit icon"></i></a>
+          Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("D MMMM YYYY") %>
+        </div>
+        <div class="center aligned meta">
+          <a href="/mythings/<%= thing.id %>/edit">EDIT <i class="edit icon"></i></a>
         </div>
         <div class="center aligned description">
           Current cost per use: <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %>

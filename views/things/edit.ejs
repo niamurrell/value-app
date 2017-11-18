@@ -22,6 +22,22 @@
       <button class="ui big primary button" type="submit">Submit</button>
       <a class="ui big negative button" href="/mythings/<%= thing.id %>">Cancel</a>
     </form>
+    <div class="ui hidden divider"></div>
+    <button class="ui compact button" id="deleteThingButton">Permanently Delete <%= thing.name %></button>
+    <!-- MODAL -->
+    <div class="ui tiny modal">
+      <i class="close icon"></i>
+      <div class="header">Delete <%= thing.name %></div>
+      <div class="content">
+        <form action="/mythings/<%= thing.id %>?_method=DELETE" method="post" class="ui big form">
+          <p>Are you sure you want to <strong>permanently</strong> delete <%= thing.name %>? All usage dates will be deleted. This cannot be undone. Click <strong>I'm Sure</strong> to confirm.</p>
+      </div>
+        <div class="actions">
+          <button class="ui positive approve button" type="submit">I'm Sure</button>
+          <div class="ui negative cancel button">Cancel</div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 

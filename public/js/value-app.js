@@ -15,3 +15,10 @@ $("#updateProfileButton").on("click", function() {
   $(".ui.tiny.modal")
     .modal("show");
 });
+
+// Delete Thing Modal
+$("#deleteThingButton").on("click", function() {
+  console.log("clicked");
+  $(".ui.tiny.modal")
+    .modal("show");
+});

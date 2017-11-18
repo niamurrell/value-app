@@ -95,6 +95,19 @@ router.put("/:id", middleware.isLoggedIn, function(req, res) {
   });
 });
 
+// Delete a single Thing
+router.delete("/:id", middleware.isLoggedIn, function(req, res) {
+  UserThing.findByIdAndRemove(req.params.id, function(err, foundThing) {
+    if (err) {
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings/:id");
+    } else {
+      req.flash("success", "Thing deleted!");
+      res.redirect("/mythings");
+    }
+  });
+});
+
 // Use a single Thing
 router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
@@ -114,7 +127,6 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong!");
-
     } else {
       foundThing.usageDates.push(addedUse);
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
