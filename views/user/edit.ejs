@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+
+<div class="ui text container segment">
+  <div class="ui attached segment">
+    <h1 class="ui center aligned header">Edit My Account</h1>
+    <form action="/myaccount?_method=PUT" method="post" class="ui big form">
+      <div class="field">
+        <label for="username">Change Username</label>
+        <input value="<%= currentUser.username %>" type="text" name="username">
+      </div>
+      <div class="field">
+        <label>Change Password</label>
+          <em>Coming Soon</em>
+      </div>
+      <!-- <div class="two fields">
+        <div class="field">
+          <label for="password">Change Password</label>
+          <input placeholder="Password" type="password" name="password">
+        </div>
+        <div class="field">
+          <label for="passwordMatch">Confirm Password</label>
+          <input placeholder="Confirm Password" type="password" name="passwordMatch">
+        </div>
+      </div> -->
+      <div class="ui hidden divider"></div>
+      <div class="ui two bottom attached buttons">
+        <a class="ui big negative button" href="/myaccount">Cancel</a>
+        <button class="ui big primary button" type="submit" id="updateProfileButton">Submit</button>
+      </div>
+    </form>
+    <div class="ui hidden divider"></div>
+    <p class="fine print">If you want to completely delete your account <a href="#">click here</a>.</p>
+    <!-- CONFIRMATION MODAL -->
+    <div class="ui tiny modal">
+      <i class="close icon"></i>
+      <div class="header">Are you sure you want to do this?</div>
+      <div class="content">
+        <p>To confirm, click <strong>I'm Sure</strong>. You will be asked to log in with your new username.</p>
+      </div>
+      <div class="actions">
+        <div class="ui positive approve button">I'm Sure</div>
+        <div class="ui negative cancel button">Cancel</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% include ../partials/footer %>

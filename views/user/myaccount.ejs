@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="ui text container segment">
+  <div class="ui attached segment">
+    <h1 class="ui center aligned header">My Account</h1>
+    <h3>Username</h3>
+    <p><%= currentUser.username %></p>
+    <h3>Password</h3>
+    <p>******</p>
+      <div class="ui bottom attached buttons">
+        <a href="/myaccount/edit" class="ui big primary button">Edit</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<% include ../partials/footer %>

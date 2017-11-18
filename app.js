@@ -19,6 +19,7 @@ var userThing = require("./models/userThing");
 // Require Routes
 var indexRoutes = require("./routes/index");
 var thingsRoutes = require("./routes/things");
+var userRoutes = require("./routes/user");
 
 // Implement Node Modules
 var nodeEnv = process.env.NODE_ENV || "development";
@@ -60,6 +61,7 @@ app.use(function(req, res, next) {
 // Run app
 app.use(indexRoutes);
 app.use("/mythings", thingsRoutes);
+app.use("/myaccount", userRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
