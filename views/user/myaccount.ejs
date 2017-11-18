@@ -7,10 +7,42 @@
     <p><%= currentUser.username %></p>
     <h3>Password</h3>
     <p>******</p>
-      <div class="ui bottom attached buttons">
-        <a href="/myaccount/edit" class="ui big primary button">Edit</a>
+    <div class="ui bottom attached buttons">
+      <button class="ui big primary button" id="updateProfileButton">Edit</button>
+    </div>
+    <!-- MODAL -->
+    <div class="ui tiny modal">
+      <i class="close icon"></i>
+      <div class="header">Edit My Account</div>
+      <div class="content">
+        <form action="/myaccount?_method=PUT" method="post" class="ui big form">
+          <div class="field">
+            <label for="username">Change Username</label>
+            <input value="<%= currentUser.username %>" type="text" name="username">
+          </div>
+          <div class="field">
+            <label>Change Password</label>
+              <em>Coming Soon</em>
+          </div>
+          <!-- <div class="two fields">
+            <div class="field">
+              <label for="password">Change Password</label>
+              <input placeholder="Password" type="password" name="password">
+            </div>
+            <div class="field">
+              <label for="passwordMatch">Confirm Password</label>
+              <input placeholder="Confirm Password" type="password" name="passwordMatch">
+            </div>
+          </div> -->
+          <div class="ui hidden divider"></div>
+          <p>Click <strong>I'm Sure</strong> to confirm. You will be asked to log in with your new username.</p>
       </div>
-    </form>
+        <div class="actions">
+          <button class="ui positive approve button" type="submit">I'm Sure</button>
+          <div class="ui negative cancel button">Cancel</div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
