@@ -1,13 +1,18 @@
 <% include ../partials/header %>
 
-  <h1>Edit <%= thing.name %></h1>
-
-  <form action="/mythings/<%= thing.id %>/use?_method=PUT" method="post">
-
-    <label for="purchaseDate">I used it on...</label>
-    <input type="text" name="useDate" placeholder="Date" class="date-picker" required>
-
-    <input type="submit" value="Submit">
-  </form>
+<div class="ui text container segment">
+  <div class="ui attached segment">
+    <h1 class="ui center aligned header">Edit <%= thing.name %></h1>
+    <form action="/mythings/<%= thing.id %>/use?_method=PUT" method="post" class="ui big form">
+      <div class="field">
+        <label for="purchaseDate">I used it on...</label>
+        <input type="text" name="useDate" class="date-picker" placeholder="Date" required>
+      </div>
+      <div class="ui hidden section divider"></div>
+      <button class="ui big primary button" type="submit">Submit</button>
+      <a class="ui big negative button" href="/mythings/<%= thing.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
 
 <% include ../partials/footer %>
