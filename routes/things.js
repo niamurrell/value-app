@@ -63,8 +63,8 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 router.get("/:id", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
-      console.log(err);
-      res.redirect("mythings");
+      req.flash("error", "That thing does not exist!");
+      res.redirect("/mythings");
     } else {
       res.render("things/show", {thing: foundThing, moment: moment});
     }
@@ -75,8 +75,8 @@ router.get("/:id", middleware.isLoggedIn, function(req, res) {
 router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
-      console.log(err);
-      res.redirect("mythings");
+      req.flash("error", "That thing does not exist!");
+      res.redirect("/mythings");
     } else {
       res.render("things/edit", {thing: foundThing, moment: moment});
     }
@@ -87,7 +87,7 @@ router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
 router.put("/:id", middleware.isLoggedIn, function(req, res) {
   UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, foundThing) {
     if (err) {
-      res.redirect("mythings");
+      res.redirect("/mythings");
     } else {
       req.flash("success", "Thing updated!");
       res.redirect("/mythings/" + req.params.id);
@@ -112,8 +112,8 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res) {
 router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
-      console.log(err);
-      res.redirect("mythings");
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings");
     } else {
       res.render("things/use", {thing: foundThing});
     }
@@ -125,8 +125,8 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
   var addedUse = new Date(req.body.useDate);
   UserThing.findById(req.params.id, function (err, foundThing) {
     if (err) {
-      console.log(err);
       req.flash("error", "Something went wrong!");
+      res.redirect("/mythings/:id");
     } else {
       foundThing.usageDates.push(addedUse);
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;

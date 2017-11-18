@@ -62,6 +62,9 @@ app.use(function(req, res, next) {
 app.use(indexRoutes);
 app.use("/mythings", thingsRoutes);
 app.use("/myaccount", userRoutes);
+app.use(function(req, res) {
+  res.render("404");
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

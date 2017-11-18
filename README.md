@@ -8,10 +8,9 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 * Build & style site
   * Fix myThings button hover
-  * Add forgot password function
   * Nav: add active state to current page
   * Edit thing: make dates deletable
-  * Add 404
+* Add forgot & reset password functionality
 * Add currency support
 * Add support for subscriptions where you keep paying in
 * Add goal cost per use (compare single ticket vs. membership, etc.)
