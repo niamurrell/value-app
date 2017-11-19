@@ -11,30 +11,33 @@
     <% user.things.forEach(function(thing) { %>
       <% var userCurrency = "USD" %>
       <div class="column">
-        <div class="ui link cards">
-          <div class="card">
-            <div class="content">
-              <div class="ui center aligned header">
-                <a href="/mythings/<%= thing._id %>"><%= thing.name %></a>
-              </div>
-              <div class="center aligned meta">
-                Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %>
-              </div>
-              <% if (thing.useCount == 0) { %>
-                <div class="center aligned description">
-                  Not used yet.
-                </div>
-              <% } else { %>
-              <div class="center aligned description">
-                Down to <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> per use!
-              </div>
-              <% } %>
+        <a class="ui link card" href="/mythings/<%= thing._id %>">
+          <div class="content">
+            <div class="ui center aligned header">
+              <%= thing.name %>
             </div>
-            <div class="ui bottom attached buttons">
-              <div class="ui basic button"><a href="/mythings/<%= thing._id %>">Update</a></div>
+            <div class="center aligned meta">
+              Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %>
+            </div>
+            <% if (thing.useCount == 0) { %>
+              <div class="center aligned description">
+                Not used yet.
+              </div>
+            <% } else { %>
+            <div class="center aligned description">
+              Down to <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> per use!
+            </div>
+            <% } %>
+          </div>
+          <div class="ui two bottom attached buttons">
+            <div class="ui animated basic button" tabindex="0">
+              <div class="visible content">Update</div>
+              <div class="hidden content">
+                <i class="right arrow icon"></i>
+              </div>
             </div>
           </div>
-        </div>
+        </a>
       </div>
   <% }); %>
   </div>

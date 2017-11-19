@@ -7,7 +7,6 @@ Have you ever wanted to know how much value you're getting out of the things you
 ## In Progress
 
 * Build & style site
-  * Fix myThings button hover
   * Nav: add active state to current page
   * Edit thing: make dates deletable
 * Add forgot & reset password functionality

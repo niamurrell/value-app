@@ -26,3 +26,7 @@ h1.ui.header.enormous {
 .ui.header > .icon {
   font-size: 1.3em;
 }
+
+.ui.basic.button:hover {
+  background: none !important;
+}
