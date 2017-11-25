@@ -9,17 +9,11 @@ $( document ).ready(function() {
   // Date picker
   $(".date-picker").datepicker();
 
-  // Edit Profile Modal
-  $("#updateProfileButton").on("click", function() {
-    $(".ui.tiny.modal")
-      .modal("show");
-  });
-
-  // Delete Thing Modal
-  $("#deleteThingButton").on("click", function() {
-    $(".ui.tiny.modal")
-      .modal("show");
-  });
+  // Modals
+  var updateProfileButton = "#updateProfileButton";
+  var deleteThingButton = "#deleteThingButton";
+  openModal(updateProfileButton);
+  openModal(deleteThingButton);
 
   // Update per-use cost display based on user input
   $("#newPurchasePrice").on("keyup", function() {
@@ -33,4 +27,11 @@ $( document ).ready(function() {
 function updateCostPerUse(purchasePrice, useCount) {
   var costPerUse = purchasePrice / useCount;
   return costPerUse;
+}
+
+function openModal(buttonId) {
+  $(buttonId).on("click", function() {
+    $(".ui.tiny.modal")
+      .modal("show");
+  });
 }
