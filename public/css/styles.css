@@ -30,3 +30,13 @@ h1.ui.header.enormous {
 .ui.basic.button:hover {
   background: none !important;
 }
+
+.trash:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.trash:active {
+  color: maroon;
+  cursor: pointer;
+}

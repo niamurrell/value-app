@@ -85,9 +85,10 @@ router.get("/:id/edit", middleware.isLoggedIn, function(req, res) {
 
 // Update a single Thing
 router.put("/:id", middleware.isLoggedIn, function(req, res) {
-  UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, foundThing) {
+  UserThing.findByIdAndUpdate(req.params.id, req.body.thing, function(err, updatedThing) {
     if (err) {
-      res.redirect("/mythings");
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings/:id");
     } else {
       req.flash("success", "Thing updated!");
       res.redirect("/mythings/" + req.params.id);

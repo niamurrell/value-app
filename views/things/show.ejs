@@ -37,7 +37,7 @@
             <% thing.usageDates.forEach(function(date) { %>
             <div class="item">
               <div class="content">
-                <i class="large trash outline icon"></i>
+                <i class="large trash outline icon" id="<%= date %>"></i>
                 <%= moment(date).format("dddd, D MMMM YYYY") %>
               </div>
             </div>
@@ -47,39 +47,6 @@
         </div>
       </div>
     </div>
-
-
-    <!-- <h1 class="ui center aligned header"><%= thing.name %></h1>
-    <p><a href="/mythings/<%= thing.id %>/edit">EDIT</a></p>
-    <div class="center aligned meta">
-      Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>.
-    </div>
-    <h2>Current Value: <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %></h2>
-    <h3>Usage Dates</h3>
-    <div class="ui container">
-      <div class="ui middle aligned divided list">
-        <% if (thing.useCount == 0) { %>
-        <div class="item">
-          <div class="content">
-            Not used yet.
-          </div>
-        </div>
-        <% } %>
-        <div class="item">
-          <div class="content">
-            <a href="/mythings/<%= thing.id %>/use"><i class="large plus link icon"></i> Add new use</a>
-          </div>
-        </div>
-        <% thing.usageDates.forEach(function(date) { %>
-        <div class="item">
-          <div class="content">
-            <i class="large trash outline icon"></i>
-            <%= moment(date).format("dddd, D MMMM YYYY") %>
-          </div>
-        </div>
-        <% }); %>
-      </div>
-    </div> -->
   </div>
 
 <% include ../partials/footer %>

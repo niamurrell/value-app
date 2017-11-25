@@ -6,8 +6,7 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 ## In Progress
 
-* Build & style site
-  * Nav: add active state to current page
+* MVP:
   * Edit thing: make dates deletable
 * Add forgot & reset password functionality
 * Add currency support

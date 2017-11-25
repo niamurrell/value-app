@@ -11,12 +11,20 @@
         </div>
         <div class="field">
           <label for="purchaseDate">Purchase Date:</label>
-          <input type="text" name="thing[purchaseDate]" class="date-picker" placeholder="<%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>" required>
+          <input type="text" name="thing[purchaseDate]" class="date-picker" value="<%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>" required>
         </div>
       </div>
       <div class="field">
         <label for="purchasePrice">Purchase Price:</label>
-        <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" required>
+        <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" id="newPurchasePrice" required>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <input type="number" name="thing[currentValue]" value="<%= thing.currentValue %>" step="0.01" min="0" id="resultCostPerUse" hidden>
+        </div>
+        <div class="field">
+          <input type="number" name="thing[useCount]" value="<%= thing.useCount %>" step="0.01" min="0" id="useCount" hidden>
+        </div>
       </div>
       <div class="ui hidden section divider"></div>
       <button class="ui big primary button" type="submit">Submit</button>
