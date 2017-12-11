@@ -5,7 +5,7 @@ var UserThing = require("../models/userThing.js");
 var middleware = require("./middleware.js");
 var moment = require("moment");
 
-// All routes /mythings root
+// All routes are on /mythings root
 
 // Show All My Things
 router.get("/", middleware.isLoggedIn, function(req, res) {
@@ -17,7 +17,6 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
       console.log(err);
       res.redirect("/");
     } else {
-      console.log(user);
       res.render("mythings", {user: user, things: things, moment: moment});
     }
   })
@@ -133,6 +132,33 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
       foundThing.save();
       req.flash("success", "Use added!");
+      res.redirect("/mythings/" + req.params.id);
+    }
+  });
+});
+
+// Delete a use from a single Thing
+router.put("/:id/delete-use", middleware.isLoggedIn, function(req, res) {
+  UserThing.findById(req.params.id, function(err, foundThing) {
+    if (err) {
+      console.log("ERROR");
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings/:id");
+    } else {
+      var deletedUse = new Date(req.body.hiddenDateInput);
+      // foundThing.usageDates.pull(deletedUse);
+      console.log(deletedUse);
+      for (var i = 0, j = foundThing.usageDates.length; i < j; i++) {
+        console.log(foundThing.usageDates[i]);
+        if (foundThing.usageDates[i] == deletedUse) {
+          foundThing.usageDates.splice(i, 1);
+          break;
+        }
+      }
+      foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
+      console.log(foundThing.useCount);
+      foundThing.save();
+      req.flash("success", "Use deleted!");
       res.redirect("/mythings/" + req.params.id);
     }
   });

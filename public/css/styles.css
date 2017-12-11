@@ -31,12 +31,21 @@ h1.ui.header.enormous {
   background: none !important;
 }
 
-.trash:hover {
+i.icon.trash.outline {
+  width: 0;
+  display: inline-block;
+  transition: 0.2s linear;
+  opacity: 0;
+}
+
+.li:hover i.icon.trash.outline {
+  width: 28px;
+  opacity: 1.0;
   color: red;
   cursor: pointer;
 }
 
-.trash:active {
+.li:hover i.icon.trash.outline:active {
   color: maroon;
   cursor: pointer;
 }

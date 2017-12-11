@@ -5,7 +5,7 @@ var UserThing = require("../models/userThing.js");
 var middleware = require("./middleware.js");
 var moment = require("moment");
 
-// All routes /myaccount root
+// All routes are on /myaccount root
 
 // Show User Profile
 router.get("/", middleware.isLoggedIn, function(req, res) {

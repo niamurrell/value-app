@@ -36,9 +36,9 @@
             </div>
             <% thing.usageDates.forEach(function(date) { %>
             <div class="item">
-              <div class="content">
+              <div class="content li">
                 <i class="large trash outline icon" id="<%= date %>"></i>
-                <%= moment(date).format("dddd, D MMMM YYYY") %>
+                <span><%= moment(date).format("dddd, D MMMM YYYY") %></span>
               </div>
             </div>
             <% }); %>
@@ -46,6 +46,21 @@
         </div>
         </div>
       </div>
+    </div>
+    <!-- MODAL -->
+    <div class="ui tiny modal">
+      <i class="close icon"></i>
+      <div class="header">Delete <span id="thisDate"></span>?</div>
+      <div class="content">
+        <form action="/mythings/<%= thing.id %>/delete-use?_method=PUT" method="post" class="ui big form">
+          <p>This cannot be undone! Click <strong>I'm Sure</strong> to confirm.</p>
+          <input type="text" id="hiddenDateInput" name="hiddenDateInput" hidden>
+      </div>
+        <div class="actions">
+          <button class="ui positive approve button" type="submit">I'm Sure</button>
+          <div class="ui negative cancel button">Cancel</div>
+        </div>
+      </form>
     </div>
   </div>
 

@@ -12,8 +12,18 @@ $( document ).ready(function() {
   // Modals
   var updateProfileButton = "#updateProfileButton";
   var deleteThingButton = "#deleteThingButton";
+  var deleteUseDateButton = ".trash";
   openModal(updateProfileButton);
   openModal(deleteThingButton);
+
+  // Delete use date modal
+  $(deleteUseDateButton).on("click", function() {
+    var date = $(this).siblings("span").text();
+    var utcDate = new Date(date);
+    $("#thisDate").text(date);
+    $("#hiddenDateInput").val(utcDate);
+    openModal(deleteUseDateButton);
+  })
 
   // Update per-use cost display based on user input
   $("#newPurchasePrice").on("keyup", function() {
