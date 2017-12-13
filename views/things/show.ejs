@@ -34,10 +34,10 @@
                 <a href="/mythings/<%= thing.id %>/use"><i class="large plus link icon"></i> Add New</a>
               </div>
             </div>
-            <% thing.usageDates.forEach(function(date) { %>
+            <% thing.usageDates.forEach(function(date, index) { %>
             <div class="item">
               <div class="content li">
-                <i class="large trash outline icon" id="<%= date %>"></i>
+                <i class="large trash outline icon" id="<%= index %>"></i>
                 <span><%= moment(date).format("dddd, D MMMM YYYY") %></span>
               </div>
             </div>
@@ -54,7 +54,7 @@
       <div class="content">
         <form action="/mythings/<%= thing.id %>/delete-use?_method=PUT" method="post" class="ui big form">
           <p>This cannot be undone! Click <strong>I'm Sure</strong> to confirm.</p>
-          <input type="text" id="hiddenDateInput" name="hiddenDateInput" hidden>
+          <input type="text" id="usageDatesIndex" name="usageDatesIndex" hidden>
       </div>
         <div class="actions">
           <button class="ui positive approve button" type="submit">I'm Sure</button>

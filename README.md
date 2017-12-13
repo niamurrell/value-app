@@ -6,11 +6,9 @@ Have you ever wanted to know how much value you're getting out of the things you
 
 ## In Progress
 
-* MVP:
-  * Edit thing: make dates deletable
+* Add support for subscriptions where you keep paying in
 * Add forgot & reset password functionality
 * Add currency support
-* Add support for subscriptions where you keep paying in
 * Add goal cost per use (compare single ticket vs. membership, etc.)
 * Cost per use estimation calculator
 

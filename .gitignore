@@ -25,3 +25,4 @@ public/js/semantic.min-2.2.13.js
 * Secret Sauce #
 ######################
 .env
+aws.md

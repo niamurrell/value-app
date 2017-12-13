@@ -19,9 +19,9 @@ $( document ).ready(function() {
   // Delete use date modal
   $(deleteUseDateButton).on("click", function() {
     var date = $(this).siblings("span").text();
-    var utcDate = new Date(date);
+    var index = $(this).attr("id");
     $("#thisDate").text(date);
-    $("#hiddenDateInput").val(utcDate);
+    $("#usageDatesIndex").val(index);
     openModal(deleteUseDateButton);
   })
 

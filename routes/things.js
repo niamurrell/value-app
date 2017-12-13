@@ -145,18 +145,9 @@ router.put("/:id/delete-use", middleware.isLoggedIn, function(req, res) {
       req.flash("error", "Something went wrong!");
       res.redirect("/mythings/:id");
     } else {
-      var deletedUse = new Date(req.body.hiddenDateInput);
-      // foundThing.usageDates.pull(deletedUse);
-      console.log(deletedUse);
-      for (var i = 0, j = foundThing.usageDates.length; i < j; i++) {
-        console.log(foundThing.usageDates[i]);
-        if (foundThing.usageDates[i] == deletedUse) {
-          foundThing.usageDates.splice(i, 1);
-          break;
-        }
-      }
+      var index = req.body.usageDatesIndex;
+      foundThing.usageDates.splice(index, 1);
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
-      console.log(foundThing.useCount);
       foundThing.save();
       req.flash("success", "Use deleted!");
       res.redirect("/mythings/" + req.params.id);
