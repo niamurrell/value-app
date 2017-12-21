@@ -2,7 +2,7 @@
 
 ## Description
 
-Have you ever wanted to know how much value you're getting out of the things you buy? With this app you can track the per-use cost of your purchases over time. Set the initial purchase price when you buy the item, then click 'I used it!' every time you use the item. The app will keep track of the per-use cost so you can make sure you're getting good use of your spending money.
+Have you ever wanted to know how much value you're getting out of the things you buy? With this app you can track the [per-use cost](http://www.thefrugalgirl.com/2016/08/why-you-should-think-about-cost-per-use/) of your purchases over time. Set the initial purchase price when you buy the item, then click 'I used it!' every time you use the item. The app will keep track of the per-use cost so you can make sure you're getting good use of your spending money.
 
 ## In Progress
 
