@@ -6,6 +6,9 @@
   "repository": "https://github.com/niamurrell/value-app.git",
   "author": "Nia Murrell",
   "license": "MIT",
+  "engines": {
+    "node": "8.9.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
