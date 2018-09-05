@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
 app.use(session({
   secret: 'process.env.SESSION_SECRET',
