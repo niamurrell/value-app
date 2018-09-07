@@ -49,3 +49,24 @@ i.icon.trash.outline {
   color: maroon;
   cursor: pointer;
 }
+
+@media (max-width: 500px) {
+  .ui.buttons {
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .ui.buttons .button {
+    border-radius: 0.28571429rem;
+  }
+
+  .ui.buttons .or {
+    visibility: hidden;
+    height: 0.5em;
+  }
+
+  .ui.section.divider {
+    margin: 0;
+  }
+}
