@@ -34,6 +34,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         name: req.body.name,
         purchaseDate: new Date(req.body.purchaseDate),
         purchasePrice: req.body.purchasePrice,
+        purchaseCurrency: req.body.purchaseCurrency,
         currentValue: req.body.purchasePrice
       };
       UserThing.create(newThing, function(err, addedThing) {
