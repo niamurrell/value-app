@@ -14,9 +14,19 @@
           <input type="text" name="purchaseDate" class="date-picker" placeholder="Date" required>
         </div>
       </div>
-      <div class="field">
-        <label for="purchasePrice">Purchase Price:</label>
-        <input type="number" name="purchasePrice" placeholder="Purchase Price" step="0.01" min="0" required>
+      <div class="two fields">
+        <div class="field">
+          <label for="purchasePrice">Purchase Price:</label>
+          <input type="number" name="purchasePrice" placeholder="Purchase Price" step="0.01" min="0" required>
+        </div>
+        <div class="field">
+          <label for="purchaseCurrency">Currency:</label>
+          <select name="purchaseCurrency" id="purchaseCurrency" class="ui fluid dropdown">
+            <option value="GBP">British Pound £</option>
+            <option value="EUR">Euro €</option>
+            <option value="USD">US Dollar $</option>
+          </select>
+        </div>
       </div>
       <div class="ui hidden section divider"></div>
       <button class="ui big primary button" type="submit">Submit</button>

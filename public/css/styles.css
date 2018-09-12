@@ -50,6 +50,10 @@ i.icon.trash.outline {
   cursor: pointer;
 }
 
+select.ui.dropdown {
+  height: 47px;
+}
+
 @media (max-width: 500px) {
   .ui.buttons {
     display: flex;

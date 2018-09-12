@@ -14,9 +14,29 @@
           <input type="text" name="thing[purchaseDate]" class="date-picker" value="<%= moment(thing.purchaseDate).format("dddd, D MMMM YYYY") %>" required>
         </div>
       </div>
-      <div class="field">
-        <label for="purchasePrice">Purchase Price:</label>
-        <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" id="newPurchasePrice" required>
+      <div class="two fields">
+        <div class="field">
+          <label for="purchasePrice">Purchase Price:</label>
+          <input type="number" name="thing[purchasePrice]" value="<%= thing.purchasePrice %>" step="0.01" min="0" id="newPurchasePrice" required>
+        </div>
+        <div class="field">
+          <label for="purchaseCurrency">Currency:</label>
+          <select name="thing[purchaseCurrency]" id="purchaseCurrency" class="ui fluid dropdown">
+            <% if (thing.purchaseCurrency === "GBP") { %>
+              <option value="GBP" selected>British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD">US Dollar $</option>
+            <% } else if (thing.purchaseCurrency === "EUR") { %>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR" selected>Euro €</option>
+              <option value="USD">US Dollar $</option>
+            <% } else { %>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD" selected>US Dollar $</option>
+            <% } %>
+          </select>
+        </div>
       </div>
       <div class="two fields">
         <div class="field">
