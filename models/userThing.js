@@ -5,6 +5,11 @@ var userThingSchema = new mongoose.Schema({
   name: String,
   purchaseDate: Date,
   purchasePrice: Number,
+  purchaseCurrency: {
+    type: String,
+    minlength: 3,
+    maxlength: 3
+  },
   currentValue: Number,
   usageDates: Array
 });
