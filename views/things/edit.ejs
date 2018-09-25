@@ -30,10 +30,15 @@
               <option value="GBP">British Pound £</option>
               <option value="EUR" selected>Euro €</option>
               <option value="USD">US Dollar $</option>
-            <% } else { %>
+            <% } else if (thing.purchaseCurrency === "USD") { %>
               <option value="GBP">British Pound £</option>
               <option value="EUR">Euro €</option>
               <option value="USD" selected>US Dollar $</option>
+            <% } else { %>
+              <option value="" selected>Select</option>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD">US Dollar $</option>
             <% } %>
           </select>
         </div>

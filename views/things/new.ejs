@@ -22,9 +22,24 @@
         <div class="field">
           <label for="purchaseCurrency">Currency:</label>
           <select name="purchaseCurrency" id="purchaseCurrency" class="ui fluid dropdown">
-            <option value="GBP">British Pound £</option>
-            <option value="EUR">Euro €</option>
-            <option value="USD">US Dollar $</option>
+            <% if (user.defaultCurrency === "GBP") { %>
+              <option value="GBP" selected>British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD">US Dollar $</option>
+            <% } else if (user.defaultCurrency === "EUR") { %>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR" selected>Euro €</option>
+              <option value="USD">US Dollar $</option>
+            <% } else if (user.defaultCurrency === "USD") { %>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD" selected>US Dollar $</option>
+            <% } else { %>
+              <option value="" selected>Select</option>
+              <option value="GBP">British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD">US Dollar $</option>
+            <% } %>
           </select>
         </div>
       </div>

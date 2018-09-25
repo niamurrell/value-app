@@ -56,17 +56,33 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 
 // Form to create a new thing
 router.get("/new", middleware.isLoggedIn, function(req, res) {
-  res.render("things/new");
+  User.findOne({username: req.user.username}, function (err, foundUser) {
+    if (err) {
+      console.log(err);
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings");
+    } else {
+      res.render("things/new", {user: foundUser});
+    }
+  });
 });
 
 // Show a single Thing page
 router.get("/:id", middleware.isLoggedIn, function(req, res) {
-  UserThing.findById(req.params.id, function(err, foundThing) {
+  User.findOne({username: req.user.username}, function (err, foundUser) {
     if (err) {
-      req.flash("error", "That thing does not exist!");
+      console.log(err);
+      req.flash("error", "Something went wrong!");
       res.redirect("/mythings");
     } else {
-      res.render("things/show", {thing: foundThing, moment: moment});
+      UserThing.findById(req.params.id, function(err, foundThing) {
+        if (err) {
+          req.flash("error", "That thing does not exist!");
+          res.redirect("/mythings");
+        } else {
+          res.render("things/show", {user: foundUser, thing: foundThing, moment: moment});
+        }
+      });
     }
   });
 });

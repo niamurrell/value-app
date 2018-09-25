@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-  <% var userCurrency = thing.purchaseCurrency || "USD" %>
+  <% var userCurrency = thing.purchaseCurrency || user.defaultCurrency %>
   <div class="ui text container segment">
     <div class="ui card">
       <div class="content">
