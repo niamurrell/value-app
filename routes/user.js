@@ -14,7 +14,7 @@ router.get("/", middleware.isLoggedIn, function(req, res) {
 
 // Update User Profile
 router.put("/", middleware.isLoggedIn, function(req, res) {
-  User.findOneAndUpdate({username: req.user.username}, {username: req.body.username}, function(err, updatedUser) {
+  User.findOneAndUpdate({username: req.user.username}, req.body.user, function(err, updatedUser) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong!");

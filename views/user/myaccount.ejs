@@ -5,6 +5,18 @@
     <h1 class="ui center aligned header">My Account</h1>
     <h3>Username</h3>
     <p><%= currentUser.username %></p>
+    <h3>Default Currency</h3>
+    <p>
+      <% if (currentUser.defaultCurrency === "GBP") { %>
+        £ British Pounds
+      <% } else if (currentUser.defaultCurrency === "EUR") { %>
+        € Euros
+      <% } else if (currentUser.defaultCurrency === "USD") { %>
+        $ US Dollars
+      <% } else { %>
+        None Selected
+      <% } %>
+    </p>
     <h3>Password</h3>
     <p>******</p>
     <div class="ui bottom attached buttons">
@@ -18,7 +30,33 @@
         <form action="/myaccount?_method=PUT" method="post" class="ui big form">
           <div class="field">
             <label for="username">Change Username</label>
-            <input value="<%= currentUser.username %>" type="text" name="username">
+            <input value="<%= currentUser.username %>" type="text" name="user[username]">
+          </div>
+          <div class="field">
+            <label for="defaultCurrency">Default Currency</label>
+            <select name="user[defaultCurrency]" class="ui fluid dropdown">
+                <% if (currentUser.defaultCurrency === "GBP") { %>
+                  <option value="none">None Selected</option>
+                  <option value="GBP" selected>British Pound £</option>
+                  <option value="EUR">Euro €</option>
+                  <option value="USD">US Dollar $</option>
+                <% } else if (currentUser.defaultCurrency === "EUR") { %>
+                  <option value="none">None Selected</option>
+                  <option value="GBP">British Pound £</option>
+                  <option value="EUR" selected>Euro €</option>
+                  <option value="USD">US Dollar $</option>
+                <% } else if (currentUser.defaultCurrency === "USD") { %>
+                  <option value="none">None Selected</option>
+                  <option value="GBP">British Pound £</option>
+                  <option value="EUR">Euro €</option>
+                  <option value="USD" selected>US Dollar $</option>
+                <% } else { %>
+                  <option value="none" selected>None Selected</option>
+                  <option value="GBP">British Pound £</option>
+                  <option value="EUR">Euro €</option>
+                  <option value="USD">US Dollar $</option>
+                <% } %>
+            </select>
           </div>
           <div class="field">
             <label>Change Password</label>
