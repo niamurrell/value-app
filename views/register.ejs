@@ -4,9 +4,19 @@
   <div class="ui attached segment">
     <h1 class="ui center aligned header">Create An Account</h1>
     <form action="/register" method="post" class="ui big form">
-      <div class="field">
-        <label for="username">Username</label>
-        <input placeholder="Username" type="text" name="username">
+      <div class="two fields">
+        <div class="field">
+          <label for="username">Username</label>
+          <input placeholder="Username" type="text" name="username">
+        </div>
+        <div class="field">
+          <label for="defaultCurrency">Default Currency</label>
+          <select name="defaultCurrency" class="ui fluid dropdown">
+              <option value="GBP">British Pound £</option>
+              <option value="EUR">Euro €</option>
+              <option value="USD" selected>US Dollar $</option>
+          </select>
+        </div>
       </div>
       <div class="two fields">
         <div class="field">
