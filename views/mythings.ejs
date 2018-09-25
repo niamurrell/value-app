@@ -9,7 +9,11 @@
       <a href="/mythings/new" class="ui large primary button"><i class="plus icon"></i>Add New</a>
     </div>
     <% user.things.forEach(function(thing) { %>
-      <% var userCurrency = thing.purchaseCurrency || user.defaultCurrency %>
+      <% if (!user.defaultCurrency) { %>
+        <% var userCurrency = "USD"; %>
+      <% } else { %>
+        <% var userCurrency = thing.purchaseCurrency || user.defaultCurrency; %>
+      <% } %>
       <div class="column">
         <a class="ui link card" href="/mythings/<%= thing._id %>">
           <div class="content">
