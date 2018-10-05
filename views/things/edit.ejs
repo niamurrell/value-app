@@ -45,10 +45,10 @@
       </div>
       <div class="two fields">
         <div class="field">
-          <input type="number" name="thing[currentValue]" value="<%= thing.currentValue %>" step="0.01" min="0" id="resultCostPerUse" hidden>
+          <input type="number" name="thing[currentValue]" value="<%= thing.currentValue %>" id="resultCostPerUse" hidden>
         </div>
         <div class="field">
-          <input type="number" name="thing[useCount]" value="<%= thing.useCount %>" step="0.01" min="0" id="useCount" hidden>
+          <input type="number" name="thing[useCount]" value="<%= thing.useCount %>" id="useCount" hidden>
         </div>
       </div>
       <div class="ui hidden section divider"></div>
@@ -56,7 +56,7 @@
       <a class="ui big negative button" href="/mythings/<%= thing.id %>">Cancel</a>
     </form>
     <div class="ui hidden divider"></div>
-    <button class="ui compact button" id="deleteThingButton">Permanently Delete <%= thing.name %></button>
+    <button class="ui compact button" id="deleteThingButton" type="button">Permanently Delete <%= thing.name %></button>
     <!-- MODAL -->
     <div class="ui tiny modal">
       <i class="close icon"></i>
