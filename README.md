@@ -49,7 +49,7 @@ You'll need the following installed on your local machine to begin:
 
 In the spirit of [Hacktoberfest](hacktoberfest) and with inspiration from [Shannon Crabill's Halloween project](https://github.com/scrabill/how-many-days-until-halloween), I've opened this project with the purpose of giving developers a place to practice coding and working with Git / Github.
 
-If you'd like to contribute, take a look at the [contributor guidelines](#) to get started. I ask that participants adhere to the [code of conduct](#) to keep this a productive learning environment for everyone (myself included).
+If you'd like to contribute, take a look at the [contributor guidelines](https://github.com/niamurrell/value-app/blob/master/.github/CONTRIBUTING.md) to get started. I ask that participants adhere to the [code of conduct](https://github.com/niamurrell/value-app/blob/master/CODE_OF_CONDUCT.md) to keep this a productive learning environment for everyone (myself included).
 
 
 ## Authors & Contributors
