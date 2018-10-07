@@ -55,6 +55,7 @@ If you'd like to contribute, take a look at the [contributor guidelines](https:/
 ## Authors & Contributors
 
 * [Nia Murrell](https://github.com/niamurrell)
+* [@dongido001](https://github.com/dongido001)
 
 
 ## License

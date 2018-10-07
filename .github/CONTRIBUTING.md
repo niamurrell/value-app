@@ -14,7 +14,7 @@ To contribute code to this project you can suggest new features, fix an existing
 3. **Check pending pull requests.** Take a look through the [pending pull requests](https://github.com/niamurrell/value-app/pulls) to make sure someone else hasn't already started working on the issue you've chosen. New pull requests are always welcome, however duplicate pull requests will not be merged. You can always add new commits to the existing pull request before it is merged—it will get automatically updated.
 4. **Fork the repo.** You'll find the **Fork** button in the top-right corner of this repo. Once you're taken to your fork of the repo, use the green **Clone or download** button to open the project on your local machine. You can check the further installation requirements in the project [README](https://github.com/niamurrell/value-app/blob/master/README.md#installation).
 5. **Commit your changes with meaningful commits.** Take a look through [previous commits](https://github.com/niamurrell/value-app/commits?author=niamurrell) to see how I'm defining this. Don't forget to add yourself to the list of contributors in the project README! Push commits to your fork of the repo.
-6. **Submit a pull request.** Be sure to submit the PR to the **development** branch! 👍👍
+6. **Submit a pull request.** 👍👍
 
 
 ## Templates
