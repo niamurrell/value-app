@@ -51,11 +51,15 @@ In the spirit of [Hacktoberfest](hacktoberfest) and with inspiration from [Shann
 
 If you'd like to contribute, take a look at the [contributor guidelines](https://github.com/niamurrell/value-app/blob/master/.github/CONTRIBUTING.md) to get started. I ask that participants adhere to the [code of conduct](https://github.com/niamurrell/value-app/blob/master/CODE_OF_CONDUCT.md) to keep this a productive learning environment for everyone (myself included).
 
+If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.digitalocean.com/) before making your pull request. 😄
+
 
 ## Authors & Contributors
 
-* [Nia Murrell](https://github.com/niamurrell)
+* [Nia Murrell](https://github.com/niamurrell) (maintainer)
 * [@dongido001](https://github.com/dongido001)
+* [@tulikavijay](https://github.com/tulikavijay)
+* [@louierosero](https://github.com/louierosero)
 
 
 ## License
