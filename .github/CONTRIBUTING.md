@@ -20,7 +20,7 @@ To contribute code to this project you can suggest new features, fix an existing
 4. **Fork the repo.** You'll find the **Fork** button in the top-right corner of this repo. Once you're taken to your fork of the repo, use the green **Clone or download** button to open the project on your local machine. You can check the further installation requirements in the project [README](https://github.com/niamurrell/value-app/blob/master/README.md#installation).
 5. **Commit your changes with meaningful commits.** Take a look through [previous commits](https://github.com/niamurrell/value-app/commits?author=niamurrell) to see how I'm defining this. Don't forget to add yourself to the list of contributors in the project README! Push commits to your fork of the repo.
 6. **Submit a pull request.** 👍👍
-7. Make sure that all the commits in the Pull request are squashed and made into one.
+7. ``optional`` Make sure that all the commits in the Pull request are squashed and made into one.
 In case if u dont know squashing check it [here](http://forum.freecodecamp.org/t/how-to-squash-multiple-commits-into-one-with-git/13231).
 
 ## Submitting code/PR
@@ -32,6 +32,7 @@ Add these parameters to your PR for review:
 2. Are you changing functionality? 
 3. Are you improving performance? 
 4. Are you updating documentation? 
+5. Add some screenshots of the fix.
 
 ## How to Report a Bug
 When filing an issue, make sure to answer these five questions:
