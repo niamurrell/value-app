@@ -154,6 +154,23 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
   });
 });
 
+// Add today use to a single Thing
+router.put("/:id/today", middleware.isLoggedIn, function(req, res) {
+  var today = moment().format('MM/DD/YYYY');
+  UserThing.findById(req.params.id, function (err, foundThing) {
+    if (err) {
+      req.flash("error", "Something went wrong!");
+      res.redirect("/mythings/:id");
+    } else {
+      foundThing.usageDates.push(today);
+      foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
+      foundThing.save();
+      req.flash("success", "Use added!");
+      res.redirect("/mythings/" + req.params.id);
+    }
+  });
+});
+
 // Delete a use from a single Thing
 router.put("/:id/delete-use", middleware.isLoggedIn, function(req, res) {
   UserThing.findById(req.params.id, function(err, foundThing) {
