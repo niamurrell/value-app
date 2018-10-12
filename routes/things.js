@@ -37,20 +37,25 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         purchaseCurrency: req.body.purchaseCurrency,
         currentValue: req.body.purchasePrice
       };
-      UserThing.create(newThing, function(err, addedThing) {
-        if (err) {
-          console.log(err);
-          req.flash("error", "Something went wrong!");
-          res.redirect("/mythings");
-        } else {
-          addedThing.save();
-          foundUser.things.push(addedThing);
-          foundUser.save();
-          req.flash("success", "Thing added!");
-          res.redirect("/mythings");
-        }
-      });
-    }
+      try {
+        UserThing.create(newThing, function(err, addedThing) {
+          if (err) {
+            console.log(err);
+            req.flash("error", "Something went wrong!");
+            res.redirect("/mythings");
+          } else {
+            addedThing.save();
+            foundUser.things.push(addedThing);
+            foundUser.save();
+            req.flash("success", "Thing added!");
+            res.redirect("/mythings");
+          }
+        });
+      } catch (error) {
+        console.log(error)
+        req.flash("error", "Could not add thing.")
+      } 
+    } 
   });
 });
 
@@ -147,9 +152,14 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
     } else {
       foundThing.usageDates.push(addedUse);
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
-      foundThing.save();
-      req.flash("success", "Use added!");
-      res.redirect("/mythings/" + req.params.id);
+      try {
+        foundThing.save();
+        req.flash("success", "Use added!");
+        res.redirect("/mythings/" + req.params.id);
+      } catch (error) {
+        console.log(error)
+        req.flash("error", "Could not add use to this thing.")
+      }
     }
   });
 });
@@ -165,9 +175,14 @@ router.put("/:id/delete-use", middleware.isLoggedIn, function(req, res) {
       var index = req.body.usageDatesIndex;
       foundThing.usageDates.splice(index, 1);
       foundThing.currentValue = foundThing.purchasePrice / foundThing.useCount;
-      foundThing.save();
-      req.flash("success", "Use deleted!");
-      res.redirect("/mythings/" + req.params.id);
+      try {
+        foundThing.save();
+        req.flash("success", "Use deleted!");
+        res.redirect("/mythings/" + req.params.id);
+      } catch (error) {
+        console.log(error)
+        req.flash("error", "Could not delete this use.")
+      }
     }
   });
 });
