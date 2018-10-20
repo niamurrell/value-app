@@ -62,6 +62,7 @@ If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.
 * [@louierosero](https://github.com/louierosero)
 * [@Ananthavijay](https://github.com/Ananthavijay)
 * [@djdany01](https://github.com/djdany01)
+* [@anacoimbrag](https://github.com/anacoimbrag)
 
 
 ## License
