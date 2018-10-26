@@ -59,3 +59,4 @@ Please use issue/PR templates which are inserted automatically.
 * [Git](https://www.atlassian.com/git/tutorials) Tutorials
 * [GitHub](https://guides.github.com/activities/hello-world/) guide for pull requests & more
 * [Squashing commits](http://forum.freecodecamp.org/t/how-to-squash-multiple-commits-into-one-with-git/13231) guide for squashing commits
+* [Prettier](https://prettier.io/) Documentation
