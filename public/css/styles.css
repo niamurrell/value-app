@@ -8,7 +8,7 @@ main {
 }
 
 .footer {
-  background-color: #DDD;
+  background-color: #ddd;
   display: block;
   position: fixed;
   bottom: 0;
@@ -16,7 +16,8 @@ main {
   width: 100%;
 }
 
-.ui.cards > .card, .ui.card {
+.ui.cards > .card,
+.ui.card {
   width: 1200px;
 }
 
@@ -40,7 +41,7 @@ i.icon.trash.outline {
 
 .li:hover i.icon.trash.outline {
   width: 28px;
-  opacity: 1.0;
+  opacity: 1;
   color: red;
   cursor: pointer;
 }

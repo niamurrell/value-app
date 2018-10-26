@@ -8,7 +8,7 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var session = require("express-session");
-var MongoStore = require('connect-mongo')(session);
+var MongoStore = require("connect-mongo")(session);
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 
@@ -24,7 +24,8 @@ var userRoutes = require("./routes/user");
 // Implement Node Modules
 var nodeEnv = process.env.NODE_ENV || "development";
 if (nodeEnv === "development") {
-  require('dotenv').config()}
+  require("dotenv").config();
+}
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -32,17 +33,22 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(
+  process.env.MONGODB_URI,
+  {useNewUrlParser: true}
+);
 
-app.use(session({
-  secret: 'process.env.SESSION_SECRET',
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 7 * 24 * 60 * 60 // = 7 days
+app.use(
+  session({
+    secret: "process.env.SESSION_SECRET",
+    resave: true,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 7 * 24 * 60 * 60, // = 7 days
+    }),
   })
-}));
+);
 
 // Implement Passport for user authentication
 app.use(passport.initialize());
@@ -56,7 +62,7 @@ app.use(function(req, res, next) {
   res.locals.success = req.flash("success");
   res.locals.currentUser = req.user || null;
   next();
-})
+});
 
 // Run app
 app.use(indexRoutes);

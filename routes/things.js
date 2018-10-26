@@ -11,20 +11,20 @@ var moment = require("moment");
 router.get("/", middleware.isLoggedIn, function(req, res) {
   var things = UserThing.find();
   User.findOne({username: req.user.username})
-  .populate("things")
-  .exec(function(err, user) {
-    if (err) {
-      console.log(err);
-      res.redirect("/");
-    } else {
-      res.render("mythings", {user: user, things: things, moment: moment});
-    }
-  })
+    .populate("things")
+    .exec(function(err, user) {
+      if (err) {
+        console.log(err);
+        res.redirect("/");
+      } else {
+        res.render("mythings", {user: user, things: things, moment: moment});
+      }
+    });
 });
 
 // Submit form for a new thing
 router.post("/", middleware.isLoggedIn, function(req, res) {
-  User.findOne({username: req.user.username}, function (err, foundUser) {
+  User.findOne({username: req.user.username}, function(err, foundUser) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong!");
@@ -35,7 +35,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         purchaseDate: new Date(req.body.purchaseDate),
         purchasePrice: req.body.purchasePrice,
         purchaseCurrency: req.body.purchaseCurrency,
-        currentValue: req.body.purchasePrice
+        currentValue: req.body.purchasePrice,
       };
       try {
         UserThing.create(newThing, function(err, addedThing) {
@@ -52,16 +52,16 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
           }
         });
       } catch (error) {
-        console.log(error)
-        req.flash("error", "Could not add thing.")
-      } 
-    } 
+        console.log(error);
+        req.flash("error", "Could not add thing.");
+      }
+    }
   });
 });
 
 // Form to create a new thing
 router.get("/new", middleware.isLoggedIn, function(req, res) {
-  User.findOne({username: req.user.username}, function (err, foundUser) {
+  User.findOne({username: req.user.username}, function(err, foundUser) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong!");
@@ -74,7 +74,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 
 // Show a single Thing page
 router.get("/:id", middleware.isLoggedIn, function(req, res) {
-  User.findOne({username: req.user.username}, function (err, foundUser) {
+  User.findOne({username: req.user.username}, function(err, foundUser) {
     if (err) {
       console.log(err);
       req.flash("error", "Something went wrong!");
@@ -145,7 +145,7 @@ router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
 // Add a use to a single Thing
 router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
   var addedUse = new Date(req.body.useDate);
-  UserThing.findById(req.params.id, function (err, foundThing) {
+  UserThing.findById(req.params.id, function(err, foundThing) {
     if (err) {
       req.flash("error", "Something went wrong!");
       res.redirect("/mythings/:id");
@@ -157,8 +157,8 @@ router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
         req.flash("success", "Use added!");
         res.redirect("/mythings/" + req.params.id);
       } catch (error) {
-        console.log(error)
-        req.flash("error", "Could not add use to this thing.")
+        console.log(error);
+        req.flash("error", "Could not add use to this thing.");
       }
     }
   });
@@ -180,8 +180,8 @@ router.put("/:id/delete-use", middleware.isLoggedIn, function(req, res) {
         req.flash("success", "Use deleted!");
         res.redirect("/mythings/" + req.params.id);
       } catch (error) {
-        console.log(error)
-        req.flash("error", "Could not delete this use.")
+        console.log(error);
+        req.flash("error", "Could not delete this use.");
       }
     }
   });

@@ -14,7 +14,7 @@ router.get("/register", function(req, res) {
 router.post("/register", function(req, res) {
   var newUser = new User({
     username: req.body.username,
-    defaultCurrency: req.body.defaultCurrency
+    defaultCurrency: req.body.defaultCurrency,
   });
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
@@ -26,21 +26,24 @@ router.post("/register", function(req, res) {
       req.flash("success", "Welcome!");
       res.redirect("/");
     });
-  })
+  });
 });
 
 router.get("/login", function(req, res) {
   res.render("login", {
-    user : req.user,
-    error : req.flash("error")
+    user: req.user,
+    error: req.flash("error"),
   });
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/",
-  failureFlash : { type: "error", message: "Invalid username or password! Please try again." }
-  }), function(req, res) {}
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+    failureFlash: {type: "error", message: "Invalid username or password! Please try again."},
+  }),
+  function(req, res) {}
 );
 
 router.get("/logout", function(req, res) {

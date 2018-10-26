@@ -23,7 +23,7 @@ router.put("/", middleware.isLoggedIn, function(req, res) {
       req.flash("success", "Profile updated!");
       res.redirect("/myaccount");
     }
-  })
+  });
 });
 
 module.exports = router;

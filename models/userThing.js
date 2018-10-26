@@ -8,15 +8,15 @@ var userThingSchema = new mongoose.Schema({
   purchaseCurrency: {
     type: String,
     minlength: 3,
-    maxlength: 3
+    maxlength: 3,
   },
   currentValue: Number,
-  usageDates: Array
+  usageDates: Array,
 });
 
 // Set number of uses to calculate currentValue
 userThingSchema.virtual("useCount").get(function() {
   return this.usageDates.length;
-})
+});
 
 module.exports = mongoose.model("UserThing", userThingSchema);

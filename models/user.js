@@ -9,12 +9,14 @@ var UserSchema = new mongoose.Schema({
   defaultCurrency: {
     type: String,
     minlength: 3,
-    maxlength: 3
+    maxlength: 3,
   },
-  things: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "UserThing"
-  }]
+  things: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "UserThing",
+    },
+  ],
 });
 
 UserSchema.plugin(passportLocalMongoose);
