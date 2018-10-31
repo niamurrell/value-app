@@ -68,4 +68,5 @@ If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.
 
 ## License
 
-MIT ([view](https://github.com/niamurrell/value-app/blob/master/LICENSE.md))
+MIT License
+https://opensource.org/licenses/MIT
