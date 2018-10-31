@@ -65,7 +65,10 @@ If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.
 * [@anacoimbrag](https://github.com/anacoimbrag)
 * [@Trapsta](https://github.com/Trapsta)
 * [@ravk1234](https://github.com/ravk1234)
+* [@pathmaka](https://github.com/pathmaka)
 
 ## License
 
-MIT ([view](https://github.com/niamurrell/value-app/blob/master/LICENSE.md))
+MIT License
+([SPDX short identifier: MIT](https://opensource.org/licenses/MIT))
+
