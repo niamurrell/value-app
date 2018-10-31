@@ -69,4 +69,5 @@ If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.
 ## License
 
 MIT License
-https://opensource.org/licenses/MIT
+([SPDX short identifier: MIT](https://opensource.org/licenses/MIT))
+
