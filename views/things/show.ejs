@@ -4,6 +4,19 @@
   <% } else { %>
     <% var userCurrency = thing.purchaseCurrency || user.defaultCurrency %>
   <% } %>
+  <% var purchaseDate = moment(thing.purchaseDate).format("D MMMM YYYY"); %>
+  <% var purchasePrice = parseFloat(thing.purchasePrice).toLocaleString(undefined, {
+    maximumFractionDigits:2, 
+    style: "currency", 
+    currency: userCurrency, 
+    currencyDisplay: "symbol"
+    }); %> 
+  <% var currentValue = parseFloat(thing.currentValue).toLocaleString(undefined, {
+    maximumFractionDigits:2, 
+    style: "currency", 
+    currency: userCurrency, 
+    currencyDisplay: "symbol"
+    }); %>
   <div class="ui text container segment">
     <div class="ui card">
       <div class="content">
@@ -11,13 +24,20 @@
           <%= thing.name %>
         </div>
         <div class="center aligned meta">
-          Paid <%= parseFloat(thing.purchasePrice).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %> on <%= moment(thing.purchaseDate).format("D MMMM YYYY") %>
+          Paid <%= purchasePrice %> on <%= purchaseDate %>
         </div>
         <div class="center aligned meta">
           <a href="/mythings/<%= thing.id %>/edit">EDIT <i class="edit icon"></i></a>
         </div>
         <div class="center aligned description">
-          Current cost per use: <%= parseFloat(thing.currentValue).toLocaleString(undefined, {maximumFractionDigits:2, style: "currency", currency: userCurrency, currencyDisplay: "symbol"}) %>
+          Current cost per use: 
+          <% if (thing.useCount > 1) { %>
+            <%= currentValue %> after <%= thing.useCount %> uses.
+          <% } else if (thing.useCount === 1) { %>
+            <%= currentValue %> after <%= thing.useCount %> use.
+          <% } else { %>
+            not used yet, <%= purchasePrice %>
+          <% } %>
         </div>
       </div>
       <div class="extra content">
