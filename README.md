@@ -66,6 +66,7 @@ If you are doing Hacktoberfest, don't forget to [sign up](https://hacktoberfest.
 * [@Trapsta](https://github.com/Trapsta)
 * [@ravk1234](https://github.com/ravk1234)
 * [@pathmaka](https://github.com/pathmaka)
+* [@juliofortunato](https://github.com/juliofortunato)
 
 ## License
 
