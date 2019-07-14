@@ -7,7 +7,7 @@
   "author": "Nia Murrell",
   "license": "MIT",
   "engines": {
-    "node": "8.9.3"
+    "node": "10.15.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,22 +17,22 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "connect-flash": "0.1.1",
     "connect-mongo": "2.0.1",
-    "ejs": "2.6.1",
-    "express": "4.16.3",
-    "express-sanitizer": "1.0.4",
-    "express-session": "1.15.6",
+    "ejs": "2.6.2",
+    "express": "^4.17.1",
+    "express-sanitizer": "1.0.5",
+    "express-session": "1.16.2",
     "method-override": "3.0.0",
-    "moment": "2.22.2",
-    "mongoose": "5.3.1",
+    "moment": "2.24.0",
+    "mongoose": "5.6.4",
     "passport": "0.4.0",
     "passport-local": "1.0.0",
     "passport-local-mongoose": "5.0.1"
   },
   "devDependencies": {
-    "dotenv": "4.0.0",
-    "prettier": "1.14.3"
+    "dotenv": "8.0.0",
+    "prettier": "1.18.2"
   }
 }
