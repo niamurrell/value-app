@@ -57,7 +57,7 @@
                 <a href="/mythings/<%= thing.id %>/use"><i class="large plus link icon"></i> Add New</a>
               </div>
             </div>
-            <% thing.usageDates.forEach(function(date, index) { %>
+            <% thing.usageDates.reverse().forEach(function(date, index) { %>
             <div class="item">
               <div class="content li">
                 <i class="large trash outline icon" id="<%= index %>"></i>
