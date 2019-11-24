@@ -39,6 +39,13 @@
             not used yet, <%= purchasePrice %>
           <% } %>
         </div>
+        <div class="ui hidden divider"></div>
+        <div class="center aligned">
+          <form action="/mythings/<%= thing.id %>/use?_method=PUT" method="post" class="ui big form">
+            <input type="text" name="useDate" value="<%- new Date(); %>" required hidden>
+            <button class="ui big basic primary button" type="submit">Used Today</button>
+          </form>
+        </div>
       </div>
       <div class="extra content">
         <div class="description">
