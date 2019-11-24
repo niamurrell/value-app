@@ -144,9 +144,9 @@ router.get("/:id/use", middleware.isLoggedIn, function(req, res) {
 
 // Add a use to a single Thing
 router.put("/:id/use", middleware.isLoggedIn, function(req, res) {
-  var addedUse = new Date(req.body.useDate);
+  var addedUse = new Date(req.body.useDate) || false;
   UserThing.findById(req.params.id, function(err, foundThing) {
-    if (err) {
+    if (err || !addedUse) {
       req.flash("error", "Something went wrong!");
       res.redirect("/mythings/:id");
     } else {
