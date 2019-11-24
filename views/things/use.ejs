@@ -2,11 +2,12 @@
 
 <div class="ui text container segment">
   <div class="ui attached segment">
-    <h1 class="ui center aligned header">Edit <%= thing.name %></h1>
+    <h1 class="ui center aligned header">Use <%= thing.name %></h1>
     <form action="/mythings/<%= thing.id %>/use?_method=PUT" method="post" class="ui big form">
-      <div class="field">
-        <label for="purchaseDate">I used it on...</label>
-        <input type="text" name="useDate" class="date-picker" placeholder="Date" required>
+      <label for="purchaseDate">I used it on...</label>
+      <div class="field ui fluid action input">
+        <input type="text" name="useDate" class="date-picker" placeholder="Date"  id="use-today-input"required>
+        <button class="ui big basic teal button" id="use-today-button" type="button">Today</button>
       </div>
       <div class="ui hidden section divider"></div>
       <button class="ui big primary button" type="submit">Submit</button>
