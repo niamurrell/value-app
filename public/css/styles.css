@@ -61,12 +61,6 @@ select.ui.dropdown {
   }
 }
 
-@media (max-width: 768px) {
-  footer .ui.menu.fixed {
-    position: relative;
-  }
-}
-
 @media (max-width: 500px) {
   .ui.buttons {
     display: flex;
