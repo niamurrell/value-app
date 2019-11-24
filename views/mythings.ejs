@@ -8,7 +8,7 @@
     <div class="four column row">
       <a href="/mythings/new" class="ui large primary button"><i class="plus icon"></i>Add New</a>
     </div>
-    <% user.things.forEach(function(thing) { %>
+    <% user.things.reverse().forEach(function(thing) { %>
       <% if (!thing.purchaseCurrency && !user.defaultCurrency) { %>
         <% var userCurrency = "USD"; %>
       <% } else { %>
