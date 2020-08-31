@@ -33,10 +33,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(flash());
-mongoose.connect(
-  process.env.MONGODB_URI,
-  {useNewUrlParser: true}
-);
+
+var uri;
+nodeEnv === "production" ? uri = process.env.MONGODB_URI_ATLAS : uri = process.env.MONGODB_URI;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(
   session({
