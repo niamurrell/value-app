@@ -19,7 +19,7 @@
           <p><a href="#">Forgot Password?</a></p>
             <div class="ui two bottom attached buttons">
               <button class="ui big primary button" type="submit">Log In</button>
-              <a class="ui big button" href="/register">Create An Account</a>
+              <a class="ui big button" href="/register" disabled style="pointer-events: none;text-decoration:line-through;">Create An Account</a>
             </div>
         </form>
       </div>
@@ -28,13 +28,14 @@
 <% } else { %>
   <h1 class="ui center aligned enormous header"><i class="line chart icon"></i>ValueMax</h1>
   <h2 class="ui center aligned header">Maximize the value of your money!</h2>
+  <h3 class="ui center aligned header" style="color:crimson;text-transform: uppercase;">This demo app will close on 28 February 2023. Adding new Things is disabled.<br>Please save your data!</h3>
   <div class="ui hidden section divider"></div>
   <section>
     <div class="ui center aligned basic segment">
       <div class="ui massive buttons">
         <a href="/mythings" class="ui green button">See All My Things</a>
         <div class="or"></div>
-        <a href="/mythings/new" class="ui primary button"><i class="plus icon"></i>New Thing</a>
+        <a href="/mythings/new" class="ui primary button" disabled style="pointer-events: none;text-decoration:line-through;"><i class="plus icon"></i>New Thing</a>
       </div>
     </div>
   </section>

@@ -56,7 +56,7 @@ select.ui.dropdown {
 }
 
 @media (min-width: 769px) {
-  .ui.menu>.container>.right.menu>.item:last-of-type {
+  .ui.menu > .container > .right.menu > .item:last-of-type {
     border-right: 1px solid rgba(34, 36, 38, 0.1);
   }
 }

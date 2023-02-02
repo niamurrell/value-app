@@ -16,10 +16,10 @@ $(document).ready(function() {
   $("#use-today-button").on("click", function() {
     var today = new Date();
     var day = today.getDate();
-    var month =  today.getMonth();
-    month += 1;  // JavaScript months are 0-11
+    var month = today.getMonth();
+    month += 1; // JavaScript months are 0-11
     var year = today.getFullYear();
-    
+
     $("#use-today-input").val(`${month}-${day}-${year}`);
   });
 

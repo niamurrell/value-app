@@ -35,10 +35,10 @@ app.use(methodOverride("_method"));
 app.use(flash());
 
 var uri;
-nodeEnv === "production" ? uri = process.env.MONGODB_URI_ATLAS : uri = process.env.MONGODB_URI;
+nodeEnv === "production" ? (uri = process.env.MONGODB_URI_ATLAS) : (uri = process.env.MONGODB_URI);
 mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 app.use(

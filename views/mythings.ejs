@@ -5,8 +5,9 @@
     <div class="four column row">
       <h1 class="ui center aligned enormous header">My Things</h1>
     </div>
+    <h3 class="ui center aligned header" style="color:crimson;text-transform: uppercase;">This demo app will close on 28 February 2023. Adding new Things is disabled.<br>Please save your data!</h3>
     <div class="four column row">
-      <a href="/mythings/new" class="ui large primary button"><i class="plus icon"></i>Add New</a>
+      <a href="/mythings/new" class="ui large primary button" disabled style="pointer-events: none;text-decoration:line-through;"><i class="plus icon"></i>Add New</a>
     </div>
     <% user.things.reverse().forEach(function(thing) { %>
       <% if (!thing.purchaseCurrency && !user.defaultCurrency) { %>
