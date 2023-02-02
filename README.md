@@ -4,7 +4,7 @@
 
 Have you ever wanted to know how much value you're getting out of the things you buy? With this app you can track the [per-use cost](http://www.thefrugalgirl.com/2016/08/why-you-should-think-about-cost-per-use/) of your purchases over time. Set the initial purchase price when you buy the item, then note every time you use the item. The app will keep track of the per-use cost so you can make sure you're getting good use of your spending money.
 
-You can visit the live app [HERE](https://valuemax.herokuapp.com).
+You can visit the live app ~~[HERE](https://valuemax.herokuapp.com)~~ --> *As of 28 Feb 2023 the demo site is no longer live. Contact [@niamurrell](https://github.com/niamurrell) to access any data you had in the app.*
 
 >Note it may take ~30 seconds to load the first time as it's on Heroku's free hosting platform.
 
